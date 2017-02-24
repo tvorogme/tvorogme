@@ -3,6 +3,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 @import "compass/reset";
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
 
 $yellow: #FFDA53;
 $orange: #E86C0C;
@@ -20,8 +21,8 @@ body {
 }
 
 #loader {
-  width: 160px;
-  height: 40px;
+  width: 170px;
+  height: 50px;
   margin: 0 auto;
   display: block;
 }
@@ -39,5 +40,6 @@ body {
     text-align: center;
     font-size: 2em;
     padding-bottom: 30px;
+    font-family: 'Poiret One', cursive;
   }
 }
