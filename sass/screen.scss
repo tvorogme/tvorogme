@@ -2,7 +2,6 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
 @import "compass/reset";
 
 $yellow: #FFDA53;
@@ -11,7 +10,7 @@ $red: #FF0000;
 $purple: #AD0CE8;
 $blue: #434CB4;
 
-body{
+body {
   background: $yellow;
   position: absolute;
   top: 0;
@@ -20,12 +19,25 @@ body{
   bottom: 0;
 }
 
-#loader{
-  position: absolute;
-  width: 100vw;
+#loader {
+  width: 160px;
+  height: 40px;
+  margin: 0 auto;
+  display: block;
+}
+
+#center {
   height: 100vh;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100vw;
+}
+
+.center-margin {
+  margin: 0 auto;
+  width: 300px;
+
+  h2 {
+    text-align: center;
+    font-size: 2em;
+    padding-bottom: 30px;
+  }
 }

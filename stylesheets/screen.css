@@ -67,7 +67,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 14, ../sass/screen.scss */
+/* line 13, ../sass/screen.scss */
 body {
   background: #FFDA53;
   position: absolute;
@@ -77,13 +77,28 @@ body {
   bottom: 0;
 }
 
-/* line 23, ../sass/screen.scss */
+/* line 22, ../sass/screen.scss */
 #loader {
-  position: absolute;
-  width: 100vw;
+  width: 160px;
+  height: 40px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* line 29, ../sass/screen.scss */
+#center {
   height: 100vh;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100vw;
+}
+
+/* line 34, ../sass/screen.scss */
+.center-margin {
+  margin: 0 auto;
+  width: 300px;
+}
+/* line 38, ../sass/screen.scss */
+.center-margin h2 {
+  text-align: center;
+  font-size: 2em;
+  padding-bottom: 30px;
 }
