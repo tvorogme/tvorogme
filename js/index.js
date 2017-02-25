@@ -24,67 +24,72 @@ bigCircle3.attr({
 
 var state = 0;
 
+var t1 = 500;
+var t2 = 700;
+var t3 = 900;
+var t_whole = t3*2;
+
 function animate_circles() {
     if (state == 0) {
-        bigCircle1.animate({r: 5}, 500);
+        bigCircle1.animate({r: 5}, t1);
         setTimeout(function () {
-            bigCircle1.animate({r: 20}, 500);
-        }, 500);
+            bigCircle1.animate({r: 20}, t1);
+        }, t1);
 
 
-        bigCircle2.animate({r: 5}, 1000);
+        bigCircle2.animate({r: 5}, t2);
         setTimeout(function () {
-            bigCircle2.animate({r: 20}, 1000);
-        }, 1000);
+            bigCircle2.animate({r: 20}, t2);
+        }, t2);
 
 
-        bigCircle3.animate({r: 5}, 1500);
+        bigCircle3.animate({r: 5}, t3);
         setTimeout(function () {
-            bigCircle3.animate({r: 20}, 1500);
-        }, 1500);
+            bigCircle3.animate({r: 20}, t3);
+        }, t3);
 
         state = 1;
     }
 
     else if (state == 1){
-        bigCircle3.animate({r: 5}, 500);
+        bigCircle3.animate({r: 5}, t1);
         setTimeout(function () {
-            bigCircle3.animate({r: 20}, 500);
-        }, 500);
+            bigCircle3.animate({r: 20}, t1);
+        }, t1);
 
 
-        bigCircle2.animate({r: 5}, 1000);
+        bigCircle2.animate({r: 5}, t2);
         setTimeout(function () {
-            bigCircle2.animate({r: 20}, 1000);
-        }, 1000);
+            bigCircle2.animate({r: 20}, t2);
+        }, t2);
 
 
-        bigCircle1.animate({r: 5}, 1500);
+        bigCircle1.animate({r: 5}, t3);
         setTimeout(function () {
-            bigCircle1.animate({r: 20}, 1500);
-        }, 1500);
+            bigCircle1.animate({r: 20}, t3);
+        }, t3);
 
         state = 2;
     }
 
 
     else if (state == 2){
-        bigCircle2.animate({r: 5}, 500);
+        bigCircle2.animate({r: 5}, t1);
         setTimeout(function () {
-            bigCircle2.animate({r: 20}, 500);
-        }, 500);
+            bigCircle2.animate({r: 20}, t1);
+        }, t1);
 
 
-        bigCircle3.animate({r: 5}, 1000);
+        bigCircle3.animate({r: 5}, t3);
         setTimeout(function () {
-            bigCircle3.animate({r: 20}, 1000);
-        }, 1000);
+            bigCircle3.animate({r: 20}, t3);
+        }, t2);
 
 
-        bigCircle1.animate({r: 5}, 1500);
+        bigCircle1.animate({r: 5}, t3);
         setTimeout(function () {
-            bigCircle1.animate({r: 20}, 1500);
-        }, 1500);
+            bigCircle1.animate({r: 20}, t3);
+        }, t3);
 
         state = 0;
     }
@@ -92,4 +97,4 @@ function animate_circles() {
 
 animate_circles();
 
-setInterval(animate_circles, 3000);
+setInterval(animate_circles, t_whole);
