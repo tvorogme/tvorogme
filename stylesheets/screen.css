@@ -93,11 +93,22 @@ body {
 }
 
 /* line 35, ../sass/screen.scss */
+#full {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* line 47, ../sass/screen.scss */
 .center-margin {
   margin: 0 auto;
   width: 300px;
 }
-/* line 39, ../sass/screen.scss */
+/* line 51, ../sass/screen.scss */
 .center-margin h2 {
   text-align: center;
   font-size: 2em;
