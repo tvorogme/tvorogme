@@ -27,7 +27,7 @@ var state = 0;
 var t1 = 500;
 var t2 = 700;
 var t3 = 900;
-var t_whole = t3*2;
+var t_whole = t3 * 2;
 
 function animate_circles() {
     if (state == 0) {
@@ -51,7 +51,7 @@ function animate_circles() {
         state = 1;
     }
 
-    else if (state == 1){
+    else if (state == 1) {
         bigCircle3.animate({r: 5}, t1);
         setTimeout(function () {
             bigCircle3.animate({r: 20}, t1);
@@ -73,7 +73,7 @@ function animate_circles() {
     }
 
 
-    else if (state == 2){
+    else if (state == 2) {
         bigCircle2.animate({r: 5}, t1);
         setTimeout(function () {
             bigCircle2.animate({r: 20}, t1);
@@ -91,7 +91,27 @@ function animate_circles() {
             bigCircle1.animate({r: 20}, t3);
         }, t3);
 
-        state = 0;
+        state = 3;
+    }
+
+    else if (state == 3) {
+        bigCircle2.animate({r: 5}, t1);
+        setTimeout(function () {
+            bigCircle2.animate({r: 0}, t1);
+        }, t1);
+
+
+        bigCircle3.animate({r: 5}, t3);
+        setTimeout(function () {
+            bigCircle3.animate({r: 0}, t3);
+        }, t2);
+
+
+        bigCircle1.animate({r: 5}, t3);
+        setTimeout(function () {
+            bigCircle1.animate({r: 0}, t3);
+        }, t3);
+
     }
 }
 
