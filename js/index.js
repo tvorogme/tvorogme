@@ -8,6 +8,7 @@ var bigCircle1 = s.circle(21, 21, 20);
 var bigCircle2 = s.circle(81, 21, 20);
 var bigCircle3 = s.circle(141, 21, 20);
 var circles = [];
+var special_circles = [];
 
 var radiuses = [3, 10, 30, 1];
 var color = ['', '#FF0000', '#AD0CE8', '#434CB4'];
@@ -161,6 +162,14 @@ function animate_circles() {
                         onmouseout: "out($(this))",
                         onclick: "clicked($(this))"
                     });
+
+                    if (k < left_kray - 100 || k > right_kray + 100 || z < top_kray - 200 || z > bottom_kray + 200) {
+                        tmp.attr({
+                            special: "1"
+                        });
+                    } else {
+                        special_circles.push(tmp)
+                    }
                     circles.push(tmp);
                 }
                 k += 50;
@@ -171,7 +180,7 @@ function animate_circles() {
         for (l = 0; l < circles.length; l++) {
             circles[l].animate({
                 r: 60
-            }, 10 * t3);
+            }, 10 * (t3 - 20));
         }
 
         state = 5;
@@ -181,7 +190,23 @@ function animate_circles() {
         setTimeout(function () {
             $("body").css("background", "#434CB4").css("color", "white");
             $("#hgh").text("PLEASE STAND BY");
-        }, 8 * t3);
+            state = 6;
+        }, 8 * (t3 - 20));
+    }
+
+    else if (state == 6) {
+        for (l = 0; l < special_circles.length; l++) {
+            special_circles[l].animate({
+                r: 0
+            }, t3);
+        }
+
+        $("#lamp").css("display", "block");
+        $("#loader").css("width", "auto").animate({
+            height: 460
+        }, t2);
+
+        state = 7;
     }
 }
 
