@@ -4,31 +4,12 @@
 
 var s = Snap("#loader");
 var f = Snap("#full");
-var bigCircle1 = s.circle(21, 21, 20);
-var bigCircle2 = s.circle(81, 21, 20);
-var bigCircle3 = s.circle(141, 21, 20);
 var circles = [];
 var special_circles = [];
 
 var radiuses = [3, 10, 30, 1];
 var color = ['', '#FF0000', '#AD0CE8', '#434CB4'];
-
-bigCircle1.attr({
-    fill: "none",
-    stroke: "black"
-});
-
-bigCircle2.attr({
-    fill: "none",
-    stroke: "black"
-});
-
-bigCircle3.attr({
-    fill: "none",
-    stroke: "black"
-});
-
-var state = 0;
+var state = 4;
 
 var t1 = 200;
 var t2 = 400;
@@ -61,91 +42,7 @@ var top_kray = title.top;
 var bottom_kray = title.top + $(id_title).height();
 
 function animate_circles() {
-    if (state == 0) {
-        bigCircle1.animate({r: 5}, t1);
-        setTimeout(function () {
-            bigCircle1.animate({r: 20}, t1);
-        }, t1);
-
-
-        bigCircle2.animate({r: 5}, t2);
-        setTimeout(function () {
-            bigCircle2.animate({r: 20}, t2);
-        }, t2);
-
-
-        bigCircle3.animate({r: 5}, t3);
-        setTimeout(function () {
-            bigCircle3.animate({r: 20}, t3);
-        }, t3);
-
-        state = 1;
-    }
-
-    else if (state == 1) {
-        bigCircle3.animate({r: 5}, t1);
-        setTimeout(function () {
-            bigCircle3.animate({r: 20}, t1);
-        }, t1);
-
-
-        bigCircle2.animate({r: 5}, t2);
-        setTimeout(function () {
-            bigCircle2.animate({r: 20}, t2);
-        }, t2);
-
-
-        bigCircle1.animate({r: 5}, t3);
-        setTimeout(function () {
-            bigCircle1.animate({r: 20}, t3);
-        }, t3);
-
-        state = 2;
-    }
-
-    else if (state == 2) {
-        bigCircle2.animate({r: 5}, t1);
-        setTimeout(function () {
-            bigCircle2.animate({r: 20}, t1);
-        }, t1);
-
-
-        bigCircle3.animate({r: 5}, t3);
-        setTimeout(function () {
-            bigCircle3.animate({r: 20}, t3);
-        }, t2);
-
-
-        bigCircle1.animate({r: 5}, t3);
-        setTimeout(function () {
-            bigCircle1.animate({r: 20}, t3);
-        }, t3);
-
-        state = 3;
-    }
-
-    else if (state == 3) {
-        bigCircle2.animate({r: 5}, t1);
-        setTimeout(function () {
-            bigCircle2.animate({r: 0}, t1);
-        }, t1);
-
-
-        bigCircle3.animate({r: 5}, t3);
-        setTimeout(function () {
-            bigCircle3.animate({r: 0}, t3);
-        }, t2);
-
-
-        bigCircle1.animate({r: 5}, t3);
-        setTimeout(function () {
-            bigCircle1.animate({r: 0}, t3);
-        }, t3);
-
-        state = 4;
-    }
-
-    else if (state == 4) {
+    if (state == 4) {
         var num_width = $('#full').width() / 50;
         var num_height = $('#full').height() / 50;
         z = 20;
@@ -160,7 +57,8 @@ function animate_circles() {
                         stroke: "none",
                         onmouseover: "over($(this))",
                         onmouseout: "out($(this))",
-                        onclick: "clicked($(this))"
+                        onclick: "clicked($(this))",
+                        r: 60
                     });
 
                     if (k < left_kray - 100 || k > right_kray + 100 || z < top_kray - 200 || z > bottom_kray + 200) {
@@ -177,21 +75,9 @@ function animate_circles() {
             z += 50;
         }
 
-        for (l = 0; l < circles.length; l++) {
-            circles[l].animate({
-                r: 60
-            }, 10 * (t3 - 20));
-        }
-
-        state = 5;
-    }
-
-    else if (state == 5) {
-        setTimeout(function () {
-            $("body").css("background", "#434CB4").css("color", "white");
-            $("#hgh").text("PLEASE STAND BY");
-            state = 6;
-        }, 8 * (t3 - 20));
+        $("body").css("background", "#434CB4").css("color", "white");
+        $("#hgh").text("PLEASE STAND BY");
+        state = 6;
     }
 
     else if (state == 6) {
