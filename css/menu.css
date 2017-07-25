@@ -1,0 +1,26 @@
+
+nav {
+    background: #1E272C;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 16px;
+    color: #6A7D89;
+    font-size: 1.4vw;
+}
+
+nav a:hover {
+    transition: opacity 0.2s;
+}
+
+.now {
+    color: #7FC1CA;
+}
