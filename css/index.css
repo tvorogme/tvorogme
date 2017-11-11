@@ -7,19 +7,16 @@ html, body {
 
 h1 {
     color: #A8CE93;
-    font-size: 2vw;
 }
 
 h2 {
     color: #9A93E1;
-    font-size: 1.4vw;
-    padding-top: 0.2vw;
-    padding-bottom: 0.2vw;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 p {
     color: #899BA6;
-    font-size: 1.2vw;
 }
 
 a {
@@ -28,7 +25,7 @@ a {
 }
 
 .href {
-    margin-bottom: 0.2vw;
+    margin-bottom: 10px;
 }
 
 a:hover {
@@ -36,7 +33,7 @@ a:hover {
 }
 
 #about {
-    margin-bottom: 0.4vw;
+    margin-bottom: 20px;
 }
 
 table {
@@ -45,28 +42,66 @@ table {
 }
 
 .main_div {
-    width: 40vw;
     display: block;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+#header {
+    position: relative;
+    width: 600px;
     margin: 0 auto;
 }
 
 .main_div h1 {
     text-align: left;
-    margin-bottom: 0.4vw;
-}
-
-.main_div p {
-    text-align: left;
+    margin-bottom: 20px;
 }
 
 #me {
-    width: 13vw;
-    margin-bottom: 1vw;
+    width: 220px;
     float: left;
+    margin-left: 70px;
 }
 
 #description {
-    float: right;
-    width: 26vw;
-    padding-left: 1vw;
+    float: left;
+    width: 300px;
+    padding-left: 10px;
+}
+
+@media screen and (max-width: 500px) {
+    #header{
+        width: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #description {
+        float: none;
+        width: auto;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    #description h1{
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    #about{
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .href{
+        text-align: center;
+    }
+
+    #me {
+        width: 170px;
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+
 }
