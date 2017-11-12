@@ -25,15 +25,11 @@ a {
 }
 
 .href {
-    margin-bottom: 10px;
+    margin-bottom: 2px;
 }
 
 a:hover {
     color: #F2C38F;
-}
-
-#about {
-    margin-bottom: 20px;
 }
 
 table {
@@ -55,7 +51,8 @@ table {
 
 .main_div h1 {
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    font-size: 1.4em;
 }
 
 #me {
@@ -71,11 +68,12 @@ table {
 }
 
 @media screen and (max-width: 500px) {
-    #header{
+    #header {
         width: auto;
         margin-left: 10px;
         margin-right: 10px;
     }
+
     #description {
         float: none;
         width: auto;
@@ -83,17 +81,17 @@ table {
         text-align: center;
     }
 
-    #description h1{
+    #description h1 {
         text-align: center;
         margin-top: 10px;
     }
 
-    #about{
+    #about {
         width: 300px;
         margin: 0 auto;
     }
 
-    .href{
+    .href {
         text-align: center;
     }
 
