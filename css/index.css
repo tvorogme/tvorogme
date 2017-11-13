@@ -26,6 +26,7 @@ a {
 
 .href {
     margin-bottom: 2px;
+    margin-left: 10px;
 }
 
 a:hover {
@@ -58,7 +59,11 @@ table {
 #me {
     width: 220px;
     float: left;
-    margin-left: 70px;
+    margin-left: 60px;
+}
+
+#about {
+    margin-left: 10px;
 }
 
 #description {
