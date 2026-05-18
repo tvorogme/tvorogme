@@ -1,0 +1,39 @@
+{
+  "name": "tvorogme-lorelog",
+  "version": "0.1.0",
+  "description": "Indexes local Codex sessions and publishes live adventure-guild LoreLog metrics to tvorog.me.",
+  "author": {
+    "name": "Andrey Tvorozhkov",
+    "email": "tvorog@tvorog.me",
+    "url": "https://github.com/tvorogme"
+  },
+  "homepage": "https://tvorog.me",
+  "repository": "https://github.com/tvorogme/tvorogme",
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "lorelog",
+    "personal-site"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "tvorog.me LoreLog",
+    "shortDescription": "Publish Codex sessions as live guild lore.",
+    "longDescription": "Matches local Codex prompts and observed patch metrics to tvorog.me projects, then pushes a live LoreLog index to the site server.",
+    "developerName": "Andrey Tvorozhkov",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://tvorog.me",
+    "privacyPolicyURL": "https://tvorog.me",
+    "termsOfServiceURL": "https://tvorog.me",
+    "defaultPrompt": [
+      "Run the tvorog.me LoreLog indexer.",
+      "Explain how Codex sessions match to quests.",
+      "Check the live LoreLog server snapshot."
+    ],
+    "brandColor": "#7A4E2D"
+  }
+}

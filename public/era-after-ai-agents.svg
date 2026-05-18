@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" role="img" aria-labelledby="title desc">
+  <title id="title">In Agent Era looping ASCII scene</title>
+  <desc id="desc">Looping ASCII scene with a robot riding an endless road past factories and a cyberpunk skyline.</desc>
+  <style>
+    @keyframes agentBack {
+      from { transform: translateX(0); }
+      to { transform: translateX(-520px); }
+    }
+    @keyframes agentStreet {
+      from { transform: translateX(0); }
+      to { transform: translateX(-520px); }
+    }
+    @keyframes agentRoad {
+      from { transform: translateX(0); }
+      to { transform: translateX(-520px); }
+    }
+    @keyframes vehicleRide {
+      0%, 100% { transform: translateY(0) rotate(-0.45deg); }
+      50% { transform: translateY(-6px) rotate(0.45deg); }
+    }
+    @keyframes wheelA {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes wheelB {
+      0%, 49% { opacity: 0; }
+      50%, 100% { opacity: 1; }
+    }
+    .agentBackLoop {
+      animation: agentBack 10s linear infinite;
+      opacity: 0.88;
+    }
+    .agentStreetLoop {
+      animation: agentStreet 5.2s linear infinite;
+      opacity: 0.92;
+    }
+    .agentRoadLoop { animation: agentRoad 2.8s linear infinite; }
+    .agentVehicle {
+      animation: vehicleRide 0.58s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .agentWheelA { animation: wheelA 0.36s steps(1, end) infinite; }
+    .agentWheelB { animation: wheelB 0.36s steps(1, end) infinite; }
+    @media (prefers-reduced-motion: reduce) {
+      .agentBackLoop,
+      .agentStreetLoop,
+      .agentRoadLoop,
+      .agentVehicle,
+      .agentWheelA,
+      .agentWheelB { animation: none; }
+      .agentWheelB { opacity: 0; }
+    }
+  </style>
+  <rect width="100%" height="100%" fill="transparent"/>
+  <g class="agentBackLoop">
+    <text fill="#15120f" stroke="#15120f" stroke-width="0.34" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="14" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="0" y="18"> .   :    .     :   .    :     .   :    .     :   .    :     .   :</tspan>
+      <tspan x="0" y="42"> _||_       _||_        _|||_      _||_       _||_        _|||_</tspan>
+      <tspan x="0" y="64">|####|_____|_[]_|______|#####|____|####|_____|_[]_|______|#####|</tspan>
+      <tspan x="0" y="86">|_[]_|_____|####|______|_[]_|_____|_[]_|_____|####|______|_[]_|</tspan>
+      <tspan x="0" y="108">|_||_|_____|_||_|______|_||_|_____|_||_|_____|_||_|______|_||_|</tspan>
+    </text>
+    <text transform="translate(520 0)" fill="#15120f" stroke="#15120f" stroke-width="0.34" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="14" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="0" y="18"> .   :    .     :   .    :     .   :    .     :   .    :     .   :</tspan>
+      <tspan x="0" y="42"> _||_       _||_        _|||_      _||_       _||_        _|||_</tspan>
+      <tspan x="0" y="64">|####|_____|_[]_|______|#####|____|####|_____|_[]_|______|#####|</tspan>
+      <tspan x="0" y="86">|_[]_|_____|####|______|_[]_|_____|_[]_|_____|####|______|_[]_|</tspan>
+      <tspan x="0" y="108">|_||_|_____|_||_|______|_||_|_____|_||_|_____|_||_|______|_||_|</tspan>
+    </text>
+  </g>
+  <g class="agentStreetLoop">
+    <text fill="#15120f" stroke="#15120f" stroke-width="0.34" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="13" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="0" y="150">==+====+====+====+====+====+====+====+====+====+====+====+====+==</tspan>
+      <tspan x="0" y="170">  .-.      |_|       .-.      [#]       .-.      |_|       .-.</tspan>
+    </text>
+    <text transform="translate(520 0)" fill="#15120f" stroke="#15120f" stroke-width="0.34" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="13" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="0" y="150">==+====+====+====+====+====+====+====+====+====+====+====+====+==</tspan>
+      <tspan x="0" y="170">  .-.      |_|       .-.      [#]       .-.      |_|       .-.</tspan>
+    </text>
+  </g>
+  <g class="agentRoadLoop">
+    <text fill="#15120f" stroke="#15120f" stroke-width="0.42" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="15" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="0" y="206">___.____.___.____.___.____.___.____.___.____.___.____.___.____.___.</tspan>
+      <tspan x="0" y="226">-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --</tspan>
+      <tspan x="0" y="246">__/ \____/ \____/ \____/ \____/ \____/ \____/ \____/ \____/ \____/</tspan>
+    </text>
+    <text transform="translate(520 0)" fill="#15120f" stroke="#15120f" stroke-width="0.42" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="15" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="0" y="206">___.____.___.____.___.____.___.____.___.____.___.____.___.____.___.</tspan>
+      <tspan x="0" y="226">-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --</tspan>
+      <tspan x="0" y="246">__/ \____/ \____/ \____/ \____/ \____/ \____/ \____/ \____/ \____/</tspan>
+    </text>
+  </g>
+  <g class="agentVehicle">
+    <text fill="#15120f" stroke="#15120f" stroke-width="0.52" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="18" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="198" y="124">      .----.</tspan>
+      <tspan x="198" y="146"> ____[ 0 0 ]____</tspan>
+      <tspan x="198" y="168">/___ |  ==  | ___\</tspan>
+      <tspan x="198" y="190">|____|______|____|</tspan>
+    </text>
+    <text class="agentWheelA" fill="#15120f" stroke="#15120f" stroke-width="0.52" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="18" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="198" y="210">  ( / )      ( / )</tspan>
+    </text>
+    <text class="agentWheelB" fill="#15120f" stroke="#15120f" stroke-width="0.52" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="18" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="198" y="210">  ( \ )      ( \ )</tspan>
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,254 @@
+.sidebar {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  overflow: hidden;
+  padding: 10px 12px 12px;
+  container-type: inline-size;
+  scrollbar-width: thin;
+}
+
+.sidebarStack {
+  height: 100%;
+  min-height: 0;
+}
+
+.sidebar .animatedAvatar {
+  min-height: 168px;
+}
+
+.profileMeta,
+.xpBlock,
+.sidebarNav,
+.sidebarSocials {
+  border-top: 1px dashed var(--border);
+  padding-top: 14px;
+}
+
+.profileMeta {
+  display: grid;
+  gap: 0.12rem;
+  margin-top: 8px;
+  font-size: var(--type-small);
+  line-height: var(--leading-body);
+}
+
+.profileMeta p,
+.xpBlock p,
+.sidebarNav p,
+.panelLead,
+.campaignQuote {
+  margin: 0;
+}
+
+.profileMeta span {
+  display: inline-block;
+  min-width: 4.8ch;
+  font-weight: 700;
+}
+
+.profileMeta b {
+  display: inline-block;
+  width: 1.1ch;
+}
+
+.xpBlock {
+  display: grid;
+  gap: 0.34rem;
+  margin-top: 10px;
+  font-size: var(--type-caption);
+  line-height: var(--leading-ui);
+}
+
+.xpBlock p:first-child,
+.xpLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.sidebarNav {
+  display: grid;
+  gap: 0.18rem;
+  margin-top: 10px;
+  font-size: var(--type-caption);
+}
+
+.sidebarNav p {
+  margin-bottom: 0.28rem;
+}
+
+.sideNavItem {
+  display: grid;
+  grid-template-columns: 1.2ch 4ch minmax(0, 1fr);
+  gap: 0.5rem;
+  min-height: 1.05rem;
+}
+
+.sidebarSocials {
+  display: grid;
+  gap: 0.38rem;
+  margin-top: auto;
+  padding-top: 0.12rem;
+  padding-inline: 0.45rem;
+  padding-bottom: 0.5rem;
+  font-size: var(--type-caption);
+  line-height: var(--leading-ui);
+}
+
+.socialsHeader {
+  color: var(--accent);
+  font-size: var(--type-small);
+  text-transform: uppercase;
+}
+
+.socialsHeader strong {
+  color: var(--text);
+  text-shadow:
+    1px 0 var(--neon-cyan),
+    -1px 0 var(--neon-pink);
+}
+
+.socialLinkGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.16rem 0.18rem;
+}
+
+.socialLink {
+  display: grid;
+  grid-template-columns: 3.8ch minmax(0, 1fr);
+  gap: 0.36rem;
+  align-items: center;
+  min-height: 2.15rem;
+  min-width: 0;
+  border-left: 1px solid var(--neon-pink-soft);
+  padding: 0.14rem 0.22rem 0.16rem 0.38rem;
+}
+
+.socialLink:hover,
+.socialLink:focus-visible {
+  color: var(--accent);
+  outline: 1px solid var(--neon-cyan);
+  outline-offset: 2px;
+  text-shadow: 1px 0 var(--neon-pink-soft);
+}
+
+.socialIcon {
+  color: var(--neon-pink);
+  font-size: var(--type-strong);
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 1px 0 var(--neon-cyan);
+  white-space: nowrap;
+}
+
+.socialText {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  gap: 0.12rem;
+  align-items: baseline;
+}
+
+.socialText strong,
+.socialText small {
+  min-width: 0;
+}
+
+.socialText small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.socialText strong {
+  overflow-wrap: anywhere;
+}
+
+.socialText small {
+  color: var(--muted);
+  font-size: var(--type-micro);
+  line-height: var(--leading-tight);
+}
+
+.terminalPanel {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  container-type: inline-size;
+}
+
+.panelHeader {
+  display: flex;
+  height: 32px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding: 0 14px;
+  font-size: var(--type-ui);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+}
+
+.panelHeader a {
+  color: var(--accent);
+}
+
+.panelBody {
+  min-width: 0;
+  height: calc(100% - 32px);
+  overflow: auto;
+  padding: 12px 14px;
+  scrollbar-width: thin;
+}
+
+.campaignPanel .panelBody {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 14px 16px;
+}
+
+.campaignCopy {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  pointer-events: none;
+  width: min(100%, 520px);
+}
+
+h1 {
+  max-width: 19ch;
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.02;
+}
+
+.campaignQuote {
+  max-width: 47ch;
+  font-size: var(--type-body);
+  font-style: italic;
+  line-height: var(--leading-copy);
+}
+
+@media (min-width: 1081px) {
+  .profileMeta,
+  .xpBlock,
+  .sidebarNav,
+  .sidebarSocials {
+    margin-top: 0;
+    border-top: 0;
+    padding-top: 0;
+  }
+}

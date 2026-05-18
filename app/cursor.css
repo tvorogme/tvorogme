@@ -1,0 +1,137 @@
+a[href],
+button:not(:disabled),
+input[type="button"]:not(:disabled),
+input[type="checkbox"]:not(:disabled),
+input[type="radio"]:not(:disabled),
+input[type="range"]:not(:disabled),
+input[type="reset"]:not(:disabled),
+input[type="submit"]:not(:disabled),
+label[for],
+summary,
+[role="button"],
+[role="link"],
+[role="tab"],
+[tabindex]:not([tabindex="-1"]),
+[onclick],
+.projectCard,
+.questArcTabList label,
+.skillTabList label {
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+input:not([type="button"]):not([type="checkbox"]):not([type="file"]):not(
+    [type="hidden"]
+  ):not([type="radio"]):not([type="range"]):not([type="reset"]):not(
+    [type="submit"]
+  ),
+textarea,
+[contenteditable="true"] {
+  cursor: text;
+}
+
+.asciiCursorLayer {
+  position: fixed;
+  inset: 0;
+  z-index: 50000;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.asciiCursorLayer[hidden] {
+  display: none;
+}
+
+.asciiCursorLayer[data-visible="false"] {
+  opacity: 0;
+}
+
+.asciiCursorLayer[data-visible="true"] {
+  opacity: 1;
+}
+
+.asciiCursorCanvas,
+.asciiCursorHead {
+  position: fixed;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.asciiCursorCanvas {
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.5;
+  mix-blend-mode: normal;
+}
+
+.asciiCursorHead {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2ch;
+  color: var(--text);
+  font: 700 0.78rem / 1 var(--mono);
+  letter-spacing: 0;
+  text-shadow:
+    1px 0 color-mix(in srgb, var(--neon-cyan) 72%, transparent),
+    -1px 0 color-mix(in srgb, var(--neon-pink) 62%, transparent),
+    0 0 6px color-mix(in srgb, var(--accent) 22%, transparent);
+  text-align: center;
+  transform-origin: center;
+}
+
+.asciiCursorGlyph {
+  display: inline-block;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.asciiCursorLayer[data-intent="pointer"] .asciiCursorHead {
+  color: var(--accent);
+}
+
+.asciiCursorLayer[data-click="true"] .asciiCursorGlyph {
+  animation: asciiCursorClickPulse 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.asciiCursorLayer[data-intent="grab"] .asciiCursorHead,
+.asciiCursorLayer[data-intent^="resize"] .asciiCursorHead {
+  color: var(--neon-cyan);
+}
+
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html[data-ascii-cursor="true"],
+  html[data-ascii-cursor="true"] * {
+    cursor: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  .asciiCursorLayer {
+    display: none;
+  }
+}
+
+@keyframes asciiCursorClickPulse {
+  0% {
+    transform: scale(1);
+  }
+
+  42% {
+    transform: scale(1.46);
+  }
+
+  72% {
+    transform: scale(0.82);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

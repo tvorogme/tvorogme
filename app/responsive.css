@@ -1,0 +1,196 @@
+@media (max-width: 1300px) {
+  .questHead,
+  .questRow {
+    grid-template-columns: var(--quest-grid-columns);
+  }
+
+  .statRow {
+    grid-template-columns: 1.25rem minmax(0, 1fr) 2.75rem max-content;
+  }
+}
+
+@media (max-width: 760px) {
+  .siteShell {
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    height: auto;
+    overflow: visible;
+  }
+
+  .topBar,
+  .footerBar {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+    padding-block: 0.55rem;
+  }
+
+  .topBar p:last-child,
+  .footerBar span:last-child {
+    justify-self: start;
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.7rem 1rem;
+  }
+
+  .avatarButton,
+  .profileMeta,
+  .xpBlock {
+    margin: 0;
+  }
+
+  .sidebar .animatedAvatar {
+    min-height: 220px;
+  }
+
+  .sidebarNav {
+    grid-column: 1 / -1;
+  }
+
+  .avatarButton {
+    min-height: auto;
+  }
+
+  .terminalPanel {
+    height: auto;
+    min-height: 0;
+  }
+
+  .panelBody {
+    height: auto;
+  }
+
+  .campaignPanel .panelBody {
+    display: block;
+  }
+
+  .spaceScene {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: clamp(180px, 42vw, 260px);
+    min-height: 0;
+    margin-top: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background-size: 24px 24px;
+  }
+
+  .topBar p,
+  .footerBar span {
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .sidebar,
+  .terminalPanel {
+    overflow: hidden;
+  }
+
+  .sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .profileMeta,
+  .xpBlock,
+  .sidebarNav,
+  .sidebarSocials {
+    font-size: var(--type-small);
+  }
+
+  .panelHeader {
+    height: auto;
+    min-height: 30px;
+    padding-block: 0.5rem;
+  }
+
+  .panelBody {
+    height: auto;
+  }
+
+  h1 {
+    font-size: 2.45rem;
+  }
+
+  .questHead {
+    display: none;
+  }
+
+  .questMetricFilter {
+    justify-self: stretch;
+    width: 100%;
+    max-width: none;
+  }
+
+  .questRow,
+  .questNotice,
+  .legacyQuestCard header {
+    grid-template-columns: 1fr;
+  }
+
+  .statRow {
+    grid-template-columns: 1rem minmax(0, 1fr) 2.75rem max-content;
+  }
+
+  .questRow {
+    gap: 0.24rem;
+  }
+
+  .questProgressCell {
+    justify-self: start;
+    justify-content: flex-start;
+  }
+
+  .questNotice .projectStatus,
+  .questNotice .questProgressCell {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .projectStatus {
+    text-align: left;
+  }
+
+  .projectHoverHeader,
+  .projectFactGrid,
+  .projectChipList {
+    grid-template-columns: 1fr;
+  }
+
+  .projectHoverHeader > strong {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .projectFloatingWindow,
+  .projectWindowContent {
+    font-size: var(--type-caption);
+  }
+
+  .questNotice .questProgressCell {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .coreStats {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    padding: 0.7rem 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

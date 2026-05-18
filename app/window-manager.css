@@ -1,0 +1,423 @@
+.workspace:has(.wmStage) {
+  position: relative;
+  display: block;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.wmStage {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--wm-grid-columns), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--wm-grid-rows), minmax(0, 1fr));
+  gap: var(--wm-dense-gap);
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  padding: 14px 16px 16px;
+}
+
+.wmWindow {
+  --wm-window-surface: color-mix(
+    in srgb,
+    var(--background) 97%,
+    var(--surface-mix-target)
+  );
+
+  position: relative;
+  z-index: var(--wm-z);
+  isolation: isolate;
+  grid-column: var(--wm-col) / span var(--wm-col-span);
+  grid-row: var(--wm-row) / span var(--wm-row-span);
+  min-width: 0;
+  min-height: 0;
+  background: var(--wm-window-surface);
+  touch-action: none;
+}
+
+.wmWindowContent {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+.wmWindowContent > .terminalPanel,
+.wmWindowContent > .sidebar {
+  width: 100%;
+  height: 100%;
+  background: var(--wm-window-surface);
+}
+
+.wmWindowContent > .sidebar {
+  overflow-y: auto;
+}
+
+.wmWindow.isActive > .wmWindowContent > .terminalPanel,
+.wmWindow.isActive > .wmWindowContent > .sidebar,
+.wmWindow.isActive > .wmDragHandle {
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.wmWindow.isMoving,
+.wmWindow.isResizing {
+  z-index: calc(var(--wm-z) + 1000);
+}
+
+.wmWindow.isMoving {
+  --wm-window-surface: color-mix(
+    in srgb,
+    var(--background) 99%,
+    var(--surface-mix-target)
+  );
+
+  box-shadow:
+    0 0 0 1px var(--accent),
+    8px 8px 0 var(--shadow-strong);
+}
+
+.wmWindow.isResizing {
+  --wm-window-surface: color-mix(in srgb, var(--background) 88%, var(--accent));
+}
+
+.wmWindow .panelHeader {
+  cursor: grab;
+  user-select: none;
+}
+
+.wmWindow .panelHeader:active,
+.wmDragHandle:active {
+  cursor: grabbing;
+}
+
+.wmDragHandle {
+  display: flex;
+  height: 36px;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  border-bottom: 0;
+  background: var(--wm-window-surface);
+  padding: 0 10px;
+  color: var(--muted);
+  cursor: grab;
+  font-size: var(--type-small);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  user-select: none;
+}
+
+.wmDragHandle span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wmWindow[data-window-id^="project-window-"] > .wmDragHandle {
+  cursor: pointer;
+}
+
+.wmWindowCloseButton {
+  position: relative;
+  z-index: 6;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font: 700 var(--type-small) / 1 var(--mono);
+  text-transform: uppercase;
+}
+
+.wmWindowCloseButton:hover,
+.wmWindowCloseButton:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.wmWindowWithChrome .wmWindowContent {
+  height: calc(100% - 36px);
+}
+
+.wmWindowWithChrome .sidebar {
+  border-top: 0;
+}
+
+.wmResizeHandle {
+  position: absolute;
+  z-index: 4;
+  display: block;
+  background: transparent;
+}
+
+.wmResizeHandleE {
+  top: 32px;
+  right: -4px;
+  bottom: 14px;
+  width: 9px;
+  cursor: ew-resize;
+}
+
+.wmResizeHandleS {
+  right: 14px;
+  bottom: -4px;
+  left: 14px;
+  height: 9px;
+  cursor: ns-resize;
+}
+
+.wmResizeHandleS::before {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  left: 0;
+  border-top: 1px dashed var(--border);
+  content: "";
+  opacity: 0;
+  transform: translateY(-1px);
+  transition:
+    border-color 120ms ease,
+    opacity 120ms ease,
+    transform 120ms ease;
+}
+
+.wmWindow:hover > .wmResizeHandleS::before,
+.wmResizeHandleS:hover::before,
+.wmWindow.isResizing > .wmResizeHandleS::before {
+  opacity: 0.9;
+  transform: translateY(0);
+}
+
+.wmResizeHandleS:hover::before,
+.wmWindow.isResizing > .wmResizeHandleS::before {
+  border-color: var(--accent);
+}
+
+.wmResizeHandleSE {
+  right: -2px;
+  bottom: -2px;
+  width: 16px;
+  height: 16px;
+  border-right: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+  cursor: nwse-resize;
+  opacity: 0.72;
+}
+
+.wmMoving,
+.wmMoving *,
+.wmResizing,
+.wmResizing * {
+  cursor: grabbing !important;
+  user-select: none !important;
+}
+
+.wmResizingX,
+.wmResizingX * {
+  cursor: ew-resize !important;
+}
+
+.wmResizingY,
+.wmResizingY * {
+  cursor: ns-resize !important;
+}
+
+.wmResizingCorner,
+.wmResizingCorner * {
+  cursor: nwse-resize !important;
+}
+
+.wmSettingsButton {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font-size: var(--type-ui);
+  line-height: var(--leading-tight);
+}
+
+.wmSettingsFallback {
+  position: fixed;
+  right: 16px;
+  bottom: 14px;
+  z-index: 200;
+}
+
+.wmSettingsButton:hover,
+.wmSettingsButton:focus-visible,
+.wmSettingsPanel button:hover,
+.wmSettingsPanel button:focus-visible {
+  color: var(--accent);
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.wmSettingsPanel {
+  position: fixed;
+  right: 16px;
+  bottom: 44px;
+  z-index: 201;
+  display: grid;
+  width: min(300px, calc(100vw - 32px));
+  gap: 0.85rem;
+  border: 1px solid var(--border);
+  background: color-mix(
+    in srgb,
+    var(--background) 94%,
+    var(--surface-mix-target)
+  );
+  padding: 12px;
+  font-size: var(--type-small);
+  line-height: var(--leading-ui);
+}
+
+.wmSettingsHeader,
+.wmSettingControl {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.wmSettingsHeader {
+  grid-template-columns: minmax(0, 1fr) auto;
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 0.65rem;
+}
+
+.wmSettingsHeader button,
+.wmResetButton {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.wmSettingControl input {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.wmSettingControl output {
+  min-width: 4ch;
+  text-align: right;
+}
+
+.wmResetButton {
+  justify-self: start;
+  color: var(--muted);
+}
+
+.wmThemeControl {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.wmThemeControl legend {
+  margin: 0;
+  padding: 0;
+}
+
+.wmThemeOptions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+.wmThemeOption {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 28px;
+  place-items: center;
+  border: 1px dashed var(--border);
+  cursor: pointer;
+  text-align: center;
+}
+
+.wmThemeOption input {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.wmThemeOption span {
+  min-width: 0;
+  overflow: hidden;
+  padding: 0.28rem 0.24rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wmThemeOption:has(input:checked) {
+  border-style: solid;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
+}
+
+.wmThemeOption:hover,
+.wmThemeOption:focus-within {
+  color: var(--accent);
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .workspace:has(.wmStage) {
+    height: auto;
+    overflow: visible;
+    padding: 10px;
+  }
+
+  .wmStage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    gap: var(--wm-gap);
+    height: auto;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .wmWindow {
+    position: relative;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  .wmWindowContent,
+  .wmWindowWithChrome .wmWindowContent,
+  .wmWindowContent > .terminalPanel,
+  .wmWindowContent > .sidebar {
+    height: auto;
+  }
+
+  .wmDragHandle,
+  .wmResizeHandle {
+    display: none;
+  }
+
+  .wmWindowWithChrome .sidebar {
+    border-top: 1px solid var(--border);
+  }
+}

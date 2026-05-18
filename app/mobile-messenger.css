@@ -1,0 +1,1155 @@
+.mobileGuildMessenger {
+  display: none;
+}
+
+.mobileGuildMessenger .srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 760px) {
+  .siteShell--guildMobile {
+    grid-template-rows: minmax(0, 1fr);
+    height: 100svh;
+    min-height: 100svh;
+    overflow: hidden;
+    border: 0;
+  }
+
+  .siteShell--guildMobile > .topBar,
+  .siteShell--guildMobile .workspace,
+  .siteShell--guildMobile .footerBar,
+  .siteShell--guildMobile .wmSettingsFallback,
+  .siteShell--guildMobile .onboardingLayer {
+    display: none;
+  }
+
+  .asciiCursorLayer {
+    display: none;
+  }
+
+  html[data-ascii-cursor="true"],
+  html[data-ascii-cursor="true"] * {
+    cursor: auto !important;
+  }
+
+  .mobileGuildMessenger {
+    position: relative;
+    display: grid;
+    min-height: 0;
+    height: 100svh;
+    overflow: hidden;
+    padding: 8px;
+    background:
+      linear-gradient(var(--grid-line-strong) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line-soft) 1px, transparent 1px),
+      var(--background);
+    background-size: 24px 24px;
+    color: var(--text);
+  }
+
+  .mobileGuildMessenger::after {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: repeating-linear-gradient(
+      180deg,
+      transparent 0,
+      transparent 6px,
+      rgba(20, 20, 17, 0.025) 7px
+    );
+    content: "";
+    pointer-events: none;
+  }
+
+  .mobileGuildFrame {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: minmax(62px, auto) minmax(0, 1fr);
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
+    min-height: 0;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: color-mix(
+      in srgb,
+      var(--background) 96%,
+      var(--surface-mix-target)
+    );
+    box-shadow: 5px 5px 0 color-mix(in srgb, var(--shadow-strong) 62%, transparent);
+  }
+
+  .mobileGuildTopBar {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.55rem;
+    min-width: 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--bar-background);
+    padding: 0 8px;
+  }
+
+  .mobileGuildSigil,
+  .mobileIconButton,
+  .mobileHeaderSpacer {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+  }
+
+  .mobileGuildSigil,
+  .mobileIconButton {
+    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--background) 72%, transparent);
+    color: var(--text);
+  }
+
+  .mobileGuildSigil {
+    border-color: transparent;
+    background: transparent;
+    color: var(--accent);
+    font-size: var(--type-small);
+    font-weight: 800;
+  }
+
+  .mobileIconButton {
+    cursor: pointer;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      box-shadow 160ms ease,
+      transform 120ms ease;
+  }
+
+  .mobileIconButton:hover,
+  .mobileIconButton:focus-visible,
+  .mobileChatRow:hover,
+  .mobileChatRow:focus-visible,
+  .mobileQuestCard:hover,
+  .mobileQuestCard:focus-visible,
+  .mobileArticleCard:hover,
+  .mobileArticleCard:focus-visible,
+  .mobileLinkTile:hover,
+  .mobileLinkTile:focus-visible,
+  .mobileRoomPagerButton:hover,
+  .mobileRoomPagerButton:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+    outline: 1px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .mobileGuildTitleBlock {
+    display: grid;
+    min-width: 0;
+    gap: 0.15rem;
+    line-height: var(--leading-tight);
+  }
+
+  .mobileGuildTitleBlock strong,
+  .mobileGuildTitleBlock span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .mobileGuildTitleBlock strong {
+    font-family: var(--serif);
+    font-size: 1.08rem;
+    font-weight: 650;
+  }
+
+  .mobileGuildTitleBlock span {
+    color: var(--muted);
+    font-size: var(--type-caption);
+  }
+
+  .mobileGuildActions {
+    display: flex;
+    gap: 0.35rem;
+  }
+
+  .mobileInbox,
+  .mobileThread {
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .mobileInbox {
+    display: grid;
+    align-content: start;
+    gap: 0.18rem;
+    padding: 10px 14px 12px;
+  }
+
+  .mobileGuildHero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 0.75rem;
+    min-width: 0;
+    border-bottom: 1px solid var(--border);
+    background: color-mix(
+      in srgb,
+      var(--background) 92%,
+      var(--surface-mix-target)
+    );
+    padding: 8px 0 14px;
+  }
+
+  .mobileGuildHeroArt {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    min-height: 86px;
+    border: 1px dashed color-mix(in srgb, var(--border) 52%, transparent);
+    overflow: hidden;
+    background: color-mix(in srgb, var(--background) 86%, var(--accent) 5%);
+  }
+
+  .mobileGuildHeroArt .animatedAvatar {
+    min-height: 0;
+    height: 100%;
+  }
+
+  .mobileGuildHeroArt .avatarStaticImage {
+    filter: var(--avatar-filter);
+    object-fit: cover;
+  }
+
+  .mobileGuildHeroCopy {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    align-content: center;
+    min-width: 0;
+    gap: 0.35rem;
+  }
+
+  .mobileGuildHeroCopy span,
+  .mobileBubbleLabel,
+  .mobileChatText small,
+  .mobileQuestCard small,
+  .mobileQuestCard em,
+  .mobileArticleCard small,
+  .mobileLoreEntry time {
+    color: var(--muted);
+    font-size: var(--type-caption);
+    line-height: var(--leading-ui);
+  }
+
+  .mobileGuildHeroCopy h1 {
+    max-width: none;
+    margin: 0;
+    font-size: 1.42rem;
+    line-height: 1.05;
+  }
+
+  .mobileGuildHeroCopy p {
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--type-small);
+    line-height: var(--leading-body);
+  }
+
+  .mobileHomeSocials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.36rem;
+    padding: 0.38rem 0 0.56rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+  }
+
+  .mobileHomeSocial {
+    display: grid;
+    width: 38px;
+    height: 36px;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--border) 42%, transparent);
+    background: color-mix(in srgb, var(--background) 88%, transparent);
+    color: var(--accent);
+    line-height: 1;
+    text-decoration: none;
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      box-shadow 160ms ease,
+      color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .mobileHomeSocial:hover,
+  .mobileHomeSocial:focus-visible {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+    box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--accent) 72%, transparent);
+    color: var(--text);
+    outline: 1px solid var(--accent);
+    outline-offset: 2px;
+    transform: translateY(-1px);
+  }
+
+  .mobileHomeSocial:active {
+    transform: translateY(1px);
+  }
+
+  .mobileHomeSocial svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .mobileChatList {
+    display: grid;
+    gap: 0;
+    border-top: 1px solid color-mix(in srgb, var(--border) 36%, transparent);
+  }
+
+  .mobileChatRow {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr) 18px;
+    align-items: center;
+    gap: 0.65rem;
+    min-width: 0;
+    min-height: 84px;
+    border: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 28%, transparent);
+    background: transparent;
+    padding: 10px 0;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+    transition:
+      background-color 160ms ease,
+      padding-inline 180ms ease,
+      transform 120ms ease;
+  }
+
+  .mobileChatAvatar {
+    display: grid;
+    width: 54px;
+    height: 54px;
+    place-items: center;
+    border: 0;
+    background: transparent;
+    color: var(--accent);
+    transition:
+      color 160ms ease,
+      transform 180ms ease;
+  }
+
+  .mobileChatAvatar svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mobileChatRow:hover .mobileChatAvatar,
+  .mobileChatRow:focus-visible .mobileChatAvatar {
+    color: color-mix(in srgb, var(--accent) 82%, var(--text));
+    transform: translateY(-1px) scale(1.03);
+  }
+
+  .mobileChatRow:hover,
+  .mobileChatRow:focus-visible {
+    padding-inline: 0.28rem;
+    background: color-mix(in srgb, var(--accent) 5%, transparent);
+  }
+
+  .mobileIconButton:active,
+  .mobileChatRow:active,
+  .mobileQuestCard:active,
+  .mobileQuestTab:active,
+  .mobileLoreTab:active,
+  .mobileRoomPagerButton:active {
+    transform: translateY(1px);
+  }
+
+  .mobileChatText {
+    display: grid;
+    min-width: 0;
+    gap: 0.22rem;
+  }
+
+  .mobileChatText > span {
+    display: flex;
+    min-width: 0;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .mobileChatText strong,
+  .mobileChatText small,
+  .mobileArticleCard strong,
+  .mobileArticleCard span,
+  .mobileLinkTile strong,
+  .mobileLinkTile small {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .mobileChatText strong {
+    font-size: var(--type-strong);
+  }
+
+  .mobileChatChevron {
+    color: var(--muted);
+  }
+
+  .mobileThread {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    padding: 10px 8px 0;
+  }
+
+  .mobileBubble {
+    display: grid;
+    width: 100%;
+    max-width: none;
+    gap: 0.45rem;
+    border: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+    background: color-mix(
+      in srgb,
+      var(--background) 90%,
+      var(--surface-mix-target)
+    );
+    padding: 0.7rem;
+    box-shadow: none;
+  }
+
+  .mobileBubble--accent {
+    border-color: color-mix(in srgb, var(--accent) 48%, var(--border));
+    background: color-mix(in srgb, var(--background) 92%, var(--accent) 4%);
+  }
+
+  .mobileBubble--inline {
+    max-width: 100%;
+    background: color-mix(in srgb, var(--background) 90%, var(--accent) 4%);
+  }
+
+  .mobileBubble h2,
+  .mobileBubble p,
+  .mobileBubble blockquote {
+    margin: 0;
+  }
+
+  .mobileBubble h2 {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 650;
+    line-height: 1.08;
+  }
+
+  .mobileBubble p,
+  .mobileBubble blockquote {
+    font-size: var(--type-small);
+    line-height: var(--leading-body);
+  }
+
+  .mobileBubble blockquote {
+    display: grid;
+    gap: 0.16rem;
+    border-left: 1px solid var(--accent);
+    padding-left: 0.6rem;
+    color: var(--muted);
+  }
+
+  .mobileBubbleLabel {
+    color: var(--accent);
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .mobileCampaignScene {
+    position: relative;
+    min-height: 132px;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--border) 34%, transparent);
+    background: color-mix(in srgb, var(--background) 84%, var(--surface-mix-target));
+  }
+
+  .mobileCampaignScene .spaceScene {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: 138px;
+    min-height: 0;
+    opacity: 0.9;
+  }
+
+  .mobileArticlesScene {
+    min-height: 72px;
+    overflow: hidden;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 28%, transparent);
+    background: color-mix(in srgb, var(--background) 90%, var(--accent) 3%);
+  }
+
+  .mobileArticlesScene .articlesScene {
+    height: 100%;
+    min-height: 72px;
+    opacity: 0.78;
+  }
+
+  .mobileEraStrip {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 92px;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--border) 34%, transparent);
+  }
+
+  .mobileEraStrip .eraSceneImage {
+    min-height: 92px;
+  }
+
+  .mobileProfileLines,
+  .mobileDossierRows,
+  .mobileRelicList {
+    display: grid;
+    gap: 0.32rem;
+  }
+
+  .mobileProfileLines p,
+  .mobileDossierRows p,
+  .mobileRelicList p {
+    display: grid;
+    grid-template-columns: minmax(6.2rem, auto) minmax(0, 1fr);
+    gap: 0.55rem;
+    min-width: 0;
+    margin: 0;
+    border-top: 1px dashed color-mix(in srgb, var(--border) 48%, transparent);
+    padding-top: 0.34rem;
+    font-size: var(--type-caption);
+    line-height: var(--leading-ui);
+  }
+
+  .mobileProfileLines span,
+  .mobileDossierRows span,
+  .mobileRelicList span {
+    color: var(--muted);
+  }
+
+  .mobileProfileLines strong,
+  .mobileDossierRows strong,
+  .mobileRelicList strong {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .mobileXpLine,
+  .mobileProjectProgress {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: var(--type-small);
+    line-height: var(--leading-ui);
+  }
+
+  .mobileXpLine strong,
+  .mobileProjectProgress strong {
+    color: var(--accent);
+  }
+
+  .mobileLinkGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
+
+  .mobileLinkTile {
+    display: grid;
+    grid-template-columns: 2.8ch minmax(0, 1fr);
+    gap: 0.16rem 0.45rem;
+    min-width: 0;
+    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--background) 88%, transparent);
+    padding: 0.48rem;
+    color: inherit;
+  }
+
+  .mobileLinkTile > span {
+    display: grid;
+    grid-row: span 2;
+    place-items: center;
+    color: var(--accent);
+    font-weight: 800;
+  }
+
+  .mobileQuestList,
+  .mobileArticleList,
+  .mobileLoreList,
+  .mobileSkillList {
+    display: grid;
+    gap: 0.38rem;
+  }
+
+  .mobileQuestSections {
+    display: grid;
+    gap: 0.52rem;
+  }
+
+  .mobileQuestTabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border: 1px solid color-mix(in srgb, var(--border) 42%, transparent);
+  }
+
+  .mobileQuestTab {
+    min-width: 0;
+    min-height: 38px;
+    border: 0;
+    border-right: 1px solid color-mix(in srgb, var(--border) 36%, transparent);
+    background: transparent;
+    padding: 0.3rem 0.34rem;
+    color: var(--text);
+    cursor: pointer;
+    font: 700 var(--type-micro) / var(--leading-tight) var(--mono);
+    overflow-wrap: anywhere;
+    text-transform: uppercase;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      transform 120ms ease;
+  }
+
+  .mobileQuestTab:last-child {
+    border-right: 0;
+  }
+
+  .mobileQuestTab[aria-selected="true"] {
+    background: color-mix(in srgb, var(--accent) 13%, transparent);
+    color: var(--accent);
+  }
+
+  .mobileQuestSection {
+    display: grid;
+    gap: 0.34rem;
+    min-width: 0;
+  }
+
+  .mobileQuestCard {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(5.5rem, auto) 18px;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 0;
+    border: 0;
+    border-bottom: 1px dashed color-mix(in srgb, var(--border) 38%, transparent);
+    background: color-mix(in srgb, var(--background) 84%, transparent);
+    padding: 0.5rem;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+    transition:
+      background-color 160ms ease,
+      transform 120ms ease;
+  }
+
+  .mobileQuestCard:hover,
+  .mobileQuestCard:focus-visible {
+    background: color-mix(in srgb, var(--accent) 5%, transparent);
+  }
+
+  .mobileQuestCardMain,
+  .mobileQuestCardSide {
+    display: grid;
+    min-width: 0;
+    gap: 0.18rem;
+  }
+
+  .mobileQuestCardMain strong,
+  .mobileQuestCardMain small,
+  .mobileQuestCardSide em {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .mobileQuestCardSide {
+    justify-items: end;
+  }
+
+  .mobileQuestCardSide em {
+    max-width: 7.5rem;
+    font-style: normal;
+  }
+
+  .mobileArticleCard {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr) 18px;
+    align-items: start;
+    min-width: 0;
+    gap: 0.48rem;
+    border: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 28%, transparent);
+    background: color-mix(in srgb, var(--background) 88%, transparent);
+    padding: 0.62rem 0.36rem 0.66rem 0;
+    color: inherit;
+    text-decoration: none;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      padding-inline 180ms ease,
+      transform 120ms ease;
+  }
+
+  .mobileArticleCard:hover,
+  .mobileArticleCard:focus-visible {
+    background: color-mix(in srgb, var(--accent) 5%, transparent);
+    padding-inline: 0.26rem;
+  }
+
+  .mobileArticleIcon {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    color: var(--accent);
+  }
+
+  .mobileArticleCopy {
+    display: grid;
+    gap: 0.2rem;
+    min-width: 0;
+  }
+
+  .mobileArticleCopy strong {
+    font-size: var(--type-strong);
+    line-height: var(--leading-tight);
+  }
+
+  .mobileArticleCopy span {
+    color: var(--muted);
+    font-size: var(--type-caption);
+    line-height: var(--leading-body);
+  }
+
+  .mobileArticleCopy small {
+    width: fit-content;
+    border-top: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
+    padding-top: 0.16rem;
+    color: var(--accent);
+    font-size: var(--type-micro);
+    line-height: var(--leading-ui);
+    text-transform: uppercase;
+  }
+
+  .mobileArticleOpenIcon {
+    margin-top: 0.16rem;
+    color: var(--muted);
+    transition: transform 180ms ease;
+  }
+
+  .mobileArticleCard:hover .mobileArticleOpenIcon,
+  .mobileArticleCard:focus-visible .mobileArticleOpenIcon {
+    color: var(--accent);
+    transform: translate(1px, -1px);
+  }
+
+  .mobileLoreTabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: 1px solid color-mix(in srgb, var(--border) 42%, transparent);
+  }
+
+  .mobileLoreTab {
+    min-width: 0;
+    min-height: 38px;
+    border: 0;
+    border-right: 1px solid color-mix(in srgb, var(--border) 36%, transparent);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    font: 800 var(--type-caption) / var(--leading-tight) var(--mono);
+    padding: 0.38rem 0.5rem;
+    text-transform: uppercase;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      transform 120ms ease;
+  }
+
+  .mobileLoreTab:last-child {
+    border-right: 0;
+  }
+
+  .mobileLoreTab[aria-selected="true"] {
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+  }
+
+  .mobileLoreGraph,
+  .mobileLoreGraphCharts,
+  .mobileLoreMetricRows {
+    display: grid;
+    gap: 0.48rem;
+    min-width: 0;
+  }
+
+  .mobileLoreGraphHeader {
+    display: grid;
+    gap: 0.42rem;
+    min-width: 0;
+  }
+
+  .mobileLoreGraphHeader > div:first-child {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+
+  .mobileLoreGraphHeader strong,
+  .mobileLoreMetricTitle span {
+    font-size: var(--type-caption);
+    line-height: var(--leading-ui);
+    text-transform: uppercase;
+  }
+
+  .mobileLoreGraphHeader span {
+    color: var(--muted);
+    font-size: var(--type-micro);
+    line-height: var(--leading-ui);
+  }
+
+  .mobileLoreGraphRanges {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border: 1px solid color-mix(in srgb, var(--border) 36%, transparent);
+  }
+
+  .mobileLoreGraphRanges button {
+    min-width: 0;
+    min-height: 30px;
+    border: 0;
+    border-right: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    font: 800 var(--type-micro) / var(--leading-tight) var(--mono);
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      transform 120ms ease;
+  }
+
+  .mobileLoreGraphRanges button:last-child {
+    border-right: 0;
+  }
+
+  .mobileLoreGraphRanges button[aria-pressed="true"] {
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+  }
+
+  .mobileLoreGraphStats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.28rem;
+  }
+
+  .mobileLoreGraphStats p {
+    display: grid;
+    gap: 0.16rem;
+    min-width: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 35%, transparent);
+    padding: 0.28rem 0 0.38rem;
+  }
+
+  .mobileLoreGraphStats span {
+    color: var(--muted);
+    font-size: var(--type-micro);
+    line-height: var(--leading-ui);
+    overflow-wrap: anywhere;
+  }
+
+  .mobileLoreGraphStats strong {
+    color: var(--accent);
+    font-size: var(--type-strong);
+    line-height: 1;
+  }
+
+  .mobileLoreMetric {
+    --mobile-lore-color: var(--accent);
+    display: grid;
+    gap: 0.34rem;
+    min-width: 0;
+    border-top: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+    padding-top: 0.45rem;
+  }
+
+  .mobileLoreMetric--lines {
+    --mobile-lore-color: color-mix(in srgb, var(--neon-cyan) 52%, var(--accent));
+  }
+
+  .mobileLoreMetric--files {
+    --mobile-lore-color: color-mix(in srgb, var(--text) 55%, var(--accent));
+  }
+
+  .mobileLoreMetricTitle {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+
+  .mobileLoreMetricTitle strong {
+    color: var(--mobile-lore-color);
+    font-size: var(--type-strong);
+    line-height: 1;
+  }
+
+  .mobileLoreMetricRow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.18rem 0.5rem;
+    min-width: 0;
+  }
+
+  .mobileLoreMetricRow > span {
+    min-width: 0;
+    font-size: var(--type-caption);
+    line-height: var(--leading-ui);
+    overflow-wrap: anywhere;
+  }
+
+  .mobileLoreMetricRow b {
+    margin-right: 0.35rem;
+    color: var(--mobile-lore-color);
+  }
+
+  .mobileLoreMetricRow em {
+    color: var(--mobile-lore-color);
+    font-size: var(--type-caption);
+    font-style: normal;
+  }
+
+  .mobileLoreMetricRow > strong {
+    grid-column: 1 / -1;
+    display: block;
+    height: 9px;
+    border: 1px solid color-mix(in srgb, var(--border) 64%, transparent);
+    background: color-mix(in srgb, var(--background) 84%, transparent);
+  }
+
+  .mobileLoreMetricRow > strong span {
+    display: block;
+    width: var(--mobile-lore-share);
+    height: 100%;
+    background: var(--mobile-lore-color);
+  }
+
+  .mobileLoreMetricEmpty {
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--type-caption);
+    line-height: var(--leading-ui);
+  }
+
+  .mobileLoreLogScroll {
+    max-height: min(58svh, 520px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 0.16rem;
+    scrollbar-width: thin;
+  }
+
+  .mobileLoreEntry {
+    display: grid;
+    gap: 0.18rem;
+    border-left: 1px solid var(--accent);
+    padding-left: 0.55rem;
+  }
+
+  .mobileLoreEntry p {
+    margin: 0;
+  }
+
+  .mobileSkillSignal {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 3.6rem;
+    gap: 0.24rem 0.55rem;
+    min-width: 0;
+    margin: 0;
+    font-size: var(--type-caption);
+    line-height: var(--leading-ui);
+  }
+
+  .mobileSkillSignal span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .mobileSkillSignal em {
+    justify-self: end;
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  .mobileSkillSignal strong {
+    grid-column: 1 / -1;
+    display: block;
+    height: 7px;
+    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--background) 80%, transparent);
+  }
+
+  .mobileSkillSignal strong span {
+    display: block;
+    width: var(--mobile-skill);
+    height: 100%;
+    background: var(--accent);
+  }
+
+  .mobileRuneList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .mobileRuneList span {
+    border: 1px solid var(--soft-border);
+    padding: 0.28rem 0.42rem;
+    background: color-mix(in srgb, var(--background) 74%, transparent);
+    font-size: var(--type-caption);
+    line-height: var(--leading-tight);
+  }
+
+  .mobileRoomPager {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem;
+    position: sticky;
+    bottom: 0;
+    z-index: 3;
+    margin-top: auto;
+    padding: 0.56rem 0 0.72rem;
+    background:
+      linear-gradient(
+        180deg,
+        transparent 0,
+        color-mix(in srgb, var(--background) 92%, transparent) 20%,
+        var(--background) 100%
+      );
+  }
+
+  .mobileRoomPagerButton {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.32rem;
+    min-width: 0;
+    min-height: 38px;
+    border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+    background: color-mix(in srgb, var(--background) 88%, transparent);
+    color: var(--text);
+    cursor: pointer;
+    font: 700 var(--type-caption) / var(--leading-tight) var(--mono);
+    padding: 0.4rem 0.5rem;
+    text-align: left;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      transform 120ms ease;
+  }
+
+  .mobileRoomPagerButton:hover,
+  .mobileRoomPagerButton:focus-visible {
+    background: color-mix(in srgb, var(--accent) 6%, transparent);
+    box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--accent) 72%, transparent);
+  }
+
+  .mobileRoomPagerButton:last-child {
+    grid-template-columns: minmax(0, 1fr) auto;
+    text-align: right;
+  }
+
+  .mobileRoomPagerButton span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .mobileIconButton svg,
+  .mobileRoomPagerButton svg,
+  .mobileChatChevron,
+  .mobileChatAvatar > svg {
+    transition: transform 180ms ease;
+  }
+
+  .mobileIconButton:hover svg,
+  .mobileIconButton:focus-visible svg,
+  .mobileRoomPagerButton:hover svg,
+  .mobileRoomPagerButton:focus-visible svg,
+  .mobileChatRow:hover .mobileChatChevron,
+  .mobileChatRow:focus-visible .mobileChatChevron {
+    transform: translateX(1px);
+  }
+
+  .mobileChatRow:hover .mobileChatAvatar > svg,
+  .mobileChatRow:focus-visible .mobileChatAvatar > svg {
+    transform: scale(1.08) rotate(-2deg);
+  }
+
+}
+
+@media (max-width: 380px) {
+  .mobileChatRow {
+    grid-template-columns: 56px minmax(0, 1fr) 18px;
+  }
+
+  .mobileQuestCard {
+    grid-template-columns: minmax(0, 1fr) 18px;
+  }
+
+  .mobileQuestCardSide {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-items: start;
+  }
+
+  .mobileQuestCard > svg {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .mobileLinkGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mobileChatAvatar > svg {
+    animation: mobileIconIdle 6s ease-in-out infinite;
+  }
+}
+
+@keyframes mobileIconIdle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-1px);
+  }
+}

@@ -1,0 +1,2378 @@
+.asciiButton {
+  position: relative;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.avatarButton {
+  display: grid;
+  min-height: 218px;
+  justify-content: center;
+  overflow: hidden;
+  border: 0;
+}
+
+.spaceScene {
+  position: absolute;
+  right: calc(-1 * clamp(28px, 10cqw, 112px));
+  bottom: 0;
+  z-index: 0;
+  display: grid;
+  width: min(720px, max(260px, calc(78cqw + 40px)));
+  height: clamp(122px, 86%, 390px);
+  min-height: 0;
+  align-items: end;
+  overflow: hidden;
+  opacity: 0.94;
+  transition:
+    width 120ms ease,
+    height 120ms ease,
+    right 120ms ease,
+    opacity 120ms ease;
+}
+
+.spaceSceneImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: var(--space-scene-filter);
+  user-select: none;
+}
+
+.asciiButton:hover,
+.asciiButton:focus-visible,
+.questRow:hover,
+.questRow:focus-visible,
+.questNotice:hover,
+.questNotice:focus-visible,
+.legacyQuestCard:hover,
+.legacyQuestCard:focus-visible,
+.projectCard:hover > .projectTrigger,
+.projectCard:focus-visible > .projectTrigger,
+.projectCard:focus-within > .projectTrigger,
+.projectCard[data-open="true"] > .projectTrigger,
+.statRow:hover,
+.statRow:focus-visible {
+  color: var(--accent);
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.spaceScene:hover,
+.spaceScene:focus-visible {
+  color: inherit;
+  outline: 0;
+}
+
+.progressGlyph {
+  display: inline-block;
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.internalResizeStack {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+}
+
+.internalResizePane {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+.internalResizePane > * {
+  min-width: 0;
+}
+
+.dashRule {
+  position: relative;
+  height: 10px;
+  min-height: 10px;
+  margin: 0;
+  cursor: ns-resize;
+  touch-action: none;
+}
+
+.dashRule::before {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  border-top: 1px dashed var(--border);
+  content: "";
+  transform: translateY(-50%);
+  transition:
+    border-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.dashRule:hover::before,
+.dashRule:focus-visible::before {
+  border-color: var(--accent);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--accent) 36%, transparent);
+}
+
+.internalResizingY,
+.internalResizingY * {
+  cursor: ns-resize !important;
+  user-select: none !important;
+}
+
+.questTable {
+  --quest-grid-columns: minmax(9.5rem, 1fr) minmax(5.25rem, 0.4fr)
+    minmax(5.75rem, 0.44fr) minmax(3rem, 0.22fr)
+    minmax(2.8rem, 0.2fr) minmax(3.8rem, 0.28fr);
+
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.36rem;
+  height: 100%;
+  min-height: 0;
+  font-size: var(--type-ui);
+  overflow: hidden;
+}
+
+.questMetricFilter {
+  display: inline-grid;
+  grid-template-columns: repeat(3, minmax(3.2rem, 1fr));
+  justify-self: end;
+  max-width: 14rem;
+  min-width: 11.2rem;
+  border: 1px solid var(--border);
+}
+
+.questMetricFilterButton {
+  min-width: 0;
+  border: 0;
+  border-right: 1px dashed var(--soft-border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: 700 var(--type-micro) / var(--leading-tight) var(--mono);
+  letter-spacing: 0;
+  min-height: 2rem;
+  padding: 0.44rem 0.48rem;
+  text-transform: uppercase;
+}
+
+.questMetricFilterButton:last-child {
+  border-right: 0;
+}
+
+.questMetricFilterButton:hover,
+.questMetricFilterButton:focus-visible,
+.questMetricFilterButton[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+  outline: 0;
+}
+
+.questRows {
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.questRows::-webkit-scrollbar {
+  display: none;
+}
+
+.projectCard {
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+  isolation: isolate;
+  min-width: 0;
+  outline: 0;
+}
+
+.projectTrigger {
+  transition:
+    color 120ms ease,
+    background 120ms ease;
+}
+
+.questHead,
+.questRow {
+  display: grid;
+  grid-template-columns: var(--quest-grid-columns);
+  align-items: center;
+  gap: 0.28rem;
+}
+
+.questHead {
+  border-bottom: 1px dashed color-mix(in srgb, var(--border) 70%, transparent);
+  color: var(--muted);
+  font-size: var(--type-micro);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  padding: 0.32rem 0.16rem 0.24rem 0;
+  text-transform: uppercase;
+}
+
+.questRow {
+  width: 100%;
+  min-height: 2rem;
+  border: 0;
+  border-bottom: 1px dashed color-mix(in srgb, var(--border) 44%, transparent);
+  background: transparent;
+  padding: 0.22rem 0.16rem 0.24rem 0;
+  text-align: left;
+}
+
+.projectCard:hover > .projectTrigger,
+.projectCard:focus-visible > .projectTrigger,
+.projectCard:focus-within > .projectTrigger,
+.projectCard[data-open="true"] > .projectTrigger {
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+.projectHoverPreview {
+  --project-hover-rest-y: 0;
+  --project-hover-start-y: -0.28rem;
+
+  position: fixed;
+  top: var(--project-hover-top);
+  left: var(--project-hover-left);
+  z-index: 25000;
+  display: grid;
+  width: min(23.5rem, calc(100vw - 2rem));
+  min-width: min(18rem, calc(100vw - 2rem));
+  max-width: calc(100vw - 2rem);
+  gap: 0.34rem;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--neon-cyan) 9%, transparent),
+      transparent 38%,
+      color-mix(in srgb, var(--neon-pink) 7%, transparent)
+    ),
+    color-mix(in srgb, var(--background) 95%, var(--surface-mix-target));
+  box-shadow:
+    5px 5px 0 var(--shadow-strong),
+    inset 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent);
+  color: var(--text);
+  font-size: var(--type-caption);
+  line-height: var(--leading-body);
+  opacity: 0;
+  outline: 1px solid color-mix(in srgb, var(--neon-cyan) 34%, transparent);
+  outline-offset: -4px;
+  overflow: hidden;
+  padding: 0.62rem 0.66rem 0.66rem;
+  pointer-events: none;
+  transform: translateY(var(--project-hover-start-y));
+  animation: projectHoverPreviewIn 140ms ease forwards;
+}
+
+.projectHoverPreview[data-placement="top"] {
+  --project-hover-rest-y: -100%;
+  --project-hover-start-y: calc(-100% + 0.28rem);
+}
+
+.projectHoverPreview::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--neon-cyan),
+    var(--neon-pink),
+    var(--accent)
+  );
+  content: "";
+  opacity: 0.86;
+}
+
+.projectHoverPreview::after {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 8px,
+      color-mix(in srgb, var(--accent) 7%, transparent) 8px 9px
+    );
+  content: "";
+  opacity: 0.32;
+  pointer-events: none;
+}
+
+.projectHoverPreview > * {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.projectHoverPreviewChrome {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.54rem;
+  align-items: center;
+  color: var(--muted);
+  font-size: var(--type-micro);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+}
+
+.projectHoverPreviewChrome span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.projectHoverPreview strong {
+  color: var(--accent);
+  font-size: var(--type-micro);
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+}
+
+.projectHoverPreview p,
+.projectHoverPreview small {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}
+
+.projectHoverPreview p {
+  color: var(--text);
+  font-size: var(--type-small);
+  font-weight: 700;
+  line-height: var(--leading-ui);
+  -webkit-line-clamp: 2;
+}
+
+.projectHoverPreview small {
+  color: var(--muted);
+  font-size: var(--type-caption);
+  line-height: var(--leading-body);
+  -webkit-line-clamp: 3;
+}
+
+.projectHoverPreviewHint {
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+  border-top: 1px dashed var(--soft-border);
+  color: var(--accent);
+  font-size: var(--type-micro);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  padding-top: 0.42rem;
+  text-transform: uppercase;
+}
+
+.projectHoverPreviewHint::before {
+  flex: 0 0 auto;
+  color: var(--neon-pink);
+  content: ">>";
+  text-shadow: 1px 0 var(--neon-cyan);
+}
+
+.projectCard:hover,
+.projectCard:focus-visible,
+.projectCard:focus-within {
+  z-index: 20;
+}
+
+@keyframes projectHoverPreviewIn {
+  to {
+    opacity: 1;
+    transform: translateY(var(--project-hover-rest-y));
+  }
+}
+
+.questHead span:nth-child(2),
+.questProgressCell {
+  justify-self: end;
+}
+
+.questProgressCell {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  justify-content: flex-end;
+}
+
+.questProgress {
+  display: inline-grid;
+  grid-template-columns: minmax(1.3rem, 1fr) 4ch;
+  gap: 0.32rem;
+  align-items: center;
+  width: min(100%, 5.35rem);
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent) 9%, transparent),
+      color-mix(in srgb, var(--background) 84%, var(--surface-mix-target))
+    );
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 6%, transparent);
+  color: var(--accent);
+  font-size: var(--type-micro);
+  font-style: normal;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  line-height: var(--leading-tight);
+  padding: 0.17rem 0.24rem;
+  white-space: nowrap;
+}
+
+.questProgressTrack {
+  position: relative;
+  height: 0.34rem;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--border) 74%, transparent);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--border) 20%, transparent) 0 1px,
+      transparent 1px 6px
+    ),
+    color-mix(in srgb, var(--background) 82%, var(--surface-mix-target));
+}
+
+.questProgressTrack span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--quest-progress);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 74%, transparent),
+    color-mix(in srgb, var(--neon-cyan) 34%, var(--accent))
+  );
+}
+
+.questProgress strong {
+  min-width: 0;
+  color: var(--accent);
+  text-align: right;
+}
+
+.questNameCell {
+  display: grid;
+  gap: 0.08rem;
+  min-width: 0;
+}
+
+.questNameCell span,
+.questNameCell small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.questNameCell span {
+  font-weight: 700;
+}
+
+.questNameCell small {
+  color: var(--muted);
+  font-size: var(--type-caption);
+  line-height: var(--leading-body);
+}
+
+.codexQuestCounters {
+  flex: 0 0 auto;
+  border-left: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: var(--type-micro);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  opacity: 0.9;
+  padding-left: 0.42rem;
+  white-space: nowrap;
+}
+
+.projectStatus {
+  color: var(--accent);
+  font-size: var(--type-micro);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.questHead span:nth-child(n + 4),
+.questMetricCell {
+  justify-self: end;
+  text-align: right;
+}
+
+.questMetricCell {
+  color: var(--text);
+  font-size: var(--type-caption);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  white-space: nowrap;
+}
+
+.questMetricCellLines {
+  color: var(--accent);
+}
+
+.questMetricCellPending {
+  color: var(--muted);
+}
+
+.questRow strong,
+.questNotice strong,
+.loreFeed time {
+  color: var(--accent);
+}
+
+.panelLead {
+  font-size: var(--type-small);
+  line-height: var(--leading-body);
+}
+
+.incubatingPanel .panelBody {
+  overflow: hidden;
+}
+
+.questArcTabs {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.48rem;
+  height: 100%;
+  min-height: 0;
+}
+
+.questArcTabInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.questArcTabList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.34rem;
+  color: var(--muted);
+  font-size: var(--type-caption);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+}
+
+.questArcTabList label {
+  min-width: 0;
+  border: 1px dashed var(--border);
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0.24rem 0.28rem;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.questArcTabList label:hover,
+.questArcTabList label:focus-visible {
+  color: var(--accent);
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+#quest-arc-future:checked ~ .questArcTabList label[for="quest-arc-future"],
+#quest-arc-paused:checked ~ .questArcTabList label[for="quest-arc-paused"] {
+  border-style: solid;
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  color: var(--accent);
+}
+
+.questArcTabPanel {
+  display: block;
+  grid-column: 1;
+  grid-row: 2;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  pointer-events: none;
+  scrollbar-width: thin;
+  visibility: hidden;
+}
+
+#quest-arc-future:checked ~ .questArcTabPanelFuture,
+#quest-arc-paused:checked ~ .questArcTabPanelPaused {
+  pointer-events: auto;
+  visibility: visible;
+  z-index: 1;
+}
+
+.questTableStack,
+.questArcTabPanel {
+  scrollbar-width: none;
+}
+
+.questTableStack {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.questArcTabPanel::-webkit-scrollbar {
+  display: none;
+}
+
+.questBoard {
+  display: grid;
+  gap: 0.5rem;
+  font-size: var(--type-ui);
+}
+
+.questNotice {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(5.6rem, auto) auto;
+  gap: 0.1rem 0.75rem;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+}
+
+.questNotice span {
+  font-weight: 700;
+}
+
+.questNotice .projectStatus {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: var(--type-micro);
+}
+
+.questNotice small {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: var(--type-caption);
+  line-height: var(--leading-body);
+}
+
+.questNotice .questProgressCell {
+  display: flex;
+  grid-row: 1;
+  grid-column: 3;
+  align-items: center;
+  font-style: normal;
+}
+
+.legacyQuestBoard {
+  display: grid;
+  gap: 0.58rem;
+  font-size: var(--type-small);
+}
+
+.legacyQuestCard {
+  display: grid;
+  gap: 0.26rem;
+  border-left: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  padding: 0.38rem 0.46rem;
+  text-align: left;
+}
+
+.legacyQuestCard header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.62rem;
+  align-items: start;
+}
+
+.legacyQuestCard header span {
+  min-width: 0;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.legacyQuestCard p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--type-caption);
+  line-height: var(--leading-body);
+}
+
+.projectFloatingWindow {
+  position: fixed;
+  top: var(--project-popover-top);
+  left: var(--project-popover-left);
+  z-index: 10000;
+  display: grid;
+  width: var(--project-popover-width);
+  max-height: var(--project-popover-max-height);
+  gap: 0.62rem;
+  margin: 0;
+  overflow: auto;
+  border: 1px solid var(--border);
+  background: color-mix(
+    in srgb,
+    var(--background) 96%,
+    var(--surface-mix-target)
+  );
+  box-shadow: 6px 6px 0 var(--shadow-strong);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: var(--type-small);
+  line-height: var(--leading-body);
+  outline: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  outline-offset: -4px;
+  padding: 0.7rem;
+  scrollbar-width: thin;
+}
+
+.projectWindowContent {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  align-content: start;
+  gap: 0.62rem;
+  overflow: auto;
+  border: 1px solid var(--border);
+  background: color-mix(
+    in srgb,
+    var(--background) 96%,
+    var(--surface-mix-target)
+  );
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: var(--type-small);
+  line-height: var(--leading-body);
+  outline: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  outline-offset: -4px;
+  padding: 0.7rem;
+  scrollbar-width: thin;
+}
+
+.projectFloatingWindow::before {
+  display: none;
+}
+
+.projectFloatingWindow::after,
+.projectWindowContent::after {
+  position: absolute;
+  right: 0.38rem;
+  bottom: 0.28rem;
+  color: var(--muted);
+  content: "./";
+  font-size: var(--type-micro);
+  font-weight: 700;
+}
+
+.projectPopoverChrome {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.7rem;
+  align-items: center;
+  border-bottom: 1px dashed var(--soft-border);
+  padding: 0 0 0.48rem;
+  color: var(--muted);
+  font-size: var(--type-micro);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+}
+
+.projectPopoverChrome span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.projectHoverHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(8.8rem, auto);
+  gap: 0.85rem;
+  align-items: start;
+}
+
+.projectHoverHeader div {
+  display: grid;
+  gap: 0.18rem;
+  min-width: 0;
+}
+
+.projectHoverHeader span,
+.projectBoxSection h3,
+.projectFactCard dt {
+  color: var(--accent);
+  font-size: var(--type-micro);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+}
+
+.projectHoverHeader h2 {
+  margin: 0;
+  font-size: var(--type-strong);
+  line-height: var(--leading-ui);
+  overflow-wrap: anywhere;
+}
+
+.projectHoverHeader > strong {
+  justify-self: end;
+  min-width: 0;
+  border: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+  font-size: var(--type-micro);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  overflow-wrap: anywhere;
+  padding: 0.22rem 0.42rem;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.projectProgressBox {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.55rem;
+  align-items: center;
+  border-block: 1px dashed var(--soft-border);
+  padding-block: 0.46rem;
+  font-size: var(--type-caption);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+}
+
+.projectProgressBox > span,
+.projectProgressBox strong {
+  color: var(--accent);
+}
+
+.projectProgressTrack {
+  position: relative;
+  height: 0.62rem;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--border) 18%, transparent) 0 1px,
+      transparent 1px 8px
+    ),
+    color-mix(in srgb, var(--background) 86%, var(--surface-mix-target));
+}
+
+.projectProgressTrack span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--project-progress);
+  background: color-mix(in srgb, var(--accent) 72%, transparent);
+}
+
+.projectDescription,
+.projectReadMore p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--type-small);
+  line-height: var(--leading-body);
+}
+
+.projectFactGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin: 0;
+}
+
+.projectFactCard,
+.projectBoxSection {
+  min-width: 0;
+  border: 1px dashed color-mix(in srgb, var(--border) 70%, transparent);
+  background: color-mix(in srgb, var(--paper) 56%, transparent);
+  padding: 0.48rem 0.55rem;
+}
+
+.projectFactCard {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.projectFactCard dd {
+  margin: 0;
+  color: var(--text);
+  font-size: var(--type-caption);
+  line-height: var(--leading-body);
+}
+
+.projectBoxSection {
+  display: grid;
+  gap: 0.38rem;
+}
+
+.projectBoxSection h3 {
+  margin: 0;
+}
+
+.projectBoxSection ul,
+.projectChipList {
+  display: grid;
+  gap: 0.22rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projectBoxSection li {
+  color: var(--text);
+  font-size: var(--type-caption);
+  line-height: var(--leading-ui);
+}
+
+.projectBoxSection li::before {
+  color: var(--accent);
+  content: "> ";
+  font-weight: 700;
+}
+
+.codexDossier {
+  border-style: solid;
+}
+
+.codexDossierGrid,
+.codexLoreSummary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.32rem;
+}
+
+.codexDossierGrid span,
+.codexLoreSummary span {
+  display: grid;
+  min-width: 0;
+  gap: 0.1rem;
+  border: 1px dashed color-mix(in srgb, var(--border) 75%, transparent);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  padding: 0.28rem 0.34rem;
+}
+
+.codexDossierGrid b,
+.codexLoreSummary b {
+  color: var(--muted);
+  font-size: var(--type-micro);
+  line-height: var(--leading-tight);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.codexDossierGrid strong,
+.codexLoreSummary strong {
+  color: var(--accent);
+  font-size: var(--type-caption);
+  line-height: var(--leading-tight);
+  overflow-wrap: anywhere;
+}
+
+.codexDossier p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--type-caption);
+  line-height: var(--leading-body);
+}
+
+.projectChipList {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.28rem;
+}
+
+.projectChipList li {
+  border-left: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  padding: 0.2rem 0.34rem;
+  font-weight: 700;
+}
+
+.projectChipList li::before {
+  content: "";
+}
+
+.projectReadMore {
+  display: grid;
+  gap: 0.44rem;
+  border-top: 1px dashed var(--soft-border);
+  padding-top: 0.5rem;
+}
+
+.projectReadMore summary {
+  display: inline-grid;
+  min-height: 1.42rem;
+  align-items: center;
+  border: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--background) 88%, var(--accent));
+  color: var(--accent);
+  cursor: pointer;
+  font-size: var(--type-micro);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  list-style: none;
+  padding: 0.22rem 0.46rem;
+  text-transform: uppercase;
+}
+
+.projectReadMore summary::-webkit-details-marker {
+  display: none;
+}
+
+.projectReadMore summary::before {
+  content: "[+] ";
+}
+
+.projectReadMore[open] summary::before {
+  content: "[-] ";
+}
+
+.projectReadMore summary:hover,
+.projectReadMore summary:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.projectReadMore p {
+  padding-left: 0.2rem;
+}
+
+.articlesPanel .panelBody {
+  overflow: hidden;
+  padding: 0;
+}
+
+.articlesLayout {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) 1px minmax(220px, 0.78fr);
+  height: 100%;
+  min-height: 0;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--background) 72%, transparent),
+      transparent 42%,
+      color-mix(in srgb, var(--accent) 4%, transparent)
+    );
+}
+
+.featuredArticleCard {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(70px, 1fr) auto;
+  gap: 0.55rem;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 14px 16px 15px;
+}
+
+.featuredArticleCard::before,
+.featuredArticleCard::after {
+  position: absolute;
+  right: 10px;
+  left: 10px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--border) 72%, transparent),
+    transparent
+  );
+  content: "";
+  pointer-events: none;
+}
+
+.featuredArticleCard::before {
+  top: 10px;
+}
+
+.featuredArticleCard::after {
+  bottom: 10px;
+}
+
+.featuredArticleCard:hover,
+.featuredArticleCard:focus-visible,
+.articleTitleList a:hover,
+.articleTitleList a:focus-visible {
+  color: var(--accent);
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.articlesScene {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  place-items: center;
+  overflow: hidden;
+  border: 1px dashed color-mix(in srgb, var(--border) 64%, transparent);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 11px,
+      color-mix(in srgb, var(--border) 8%, transparent) 12px
+    ),
+    color-mix(in srgb, var(--background) 82%, var(--surface-mix-target));
+}
+
+.articlesScene::before {
+  position: absolute;
+  inset: 8px;
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+  content: "";
+  pointer-events: none;
+}
+
+.articlesScene pre {
+  color: color-mix(in srgb, var(--text) 86%, var(--accent));
+  font-size: var(--type-micro);
+  line-height: 0.88;
+  transform: translateY(1px);
+}
+
+.featuredArticleCard h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.12rem, 3.8cqw, 1.68rem);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.articleSplitRail {
+  position: relative;
+  width: 1px;
+  min-height: 0;
+  background: var(--border);
+}
+
+.articleSplitRail::before,
+.articleSplitRail::after {
+  position: absolute;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  content: "";
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.articleSplitRail::before {
+  top: 14px;
+}
+
+.articleSplitRail::after {
+  bottom: 14px;
+}
+
+.articleIndexPane {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.7rem;
+  min-width: 0;
+  min-height: 0;
+  padding: 14px 15px 15px 16px;
+}
+
+.articleSearch {
+  width: 100%;
+  min-height: 30px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font: 500 var(--type-small) / var(--leading-tight) var(--mono);
+  padding: 0 0.58rem;
+}
+
+.articleSearch:focus-visible {
+  border-color: var(--accent);
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.articleTitleList {
+  display: grid;
+  align-content: start;
+  gap: 0.38rem;
+  min-width: 0;
+  margin: 0;
+  overflow: auto;
+  padding: 0;
+  font-size: var(--type-small);
+  line-height: var(--leading-ui);
+  list-style: none;
+  scrollbar-width: thin;
+}
+
+.articleTitleList a {
+  display: block;
+  min-width: 0;
+  border-bottom: 1px dashed color-mix(in srgb, var(--border) 38%, transparent);
+  overflow-wrap: anywhere;
+  padding: 0.18rem 0 0.32rem;
+  font-weight: 600;
+}
+
+.articleTitleList a::before {
+  color: var(--accent);
+  content: "> ";
+}
+
+.loreFeed {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  font-size: var(--type-small);
+  list-style: none;
+}
+
+.loreFeed > li {
+  display: grid;
+  grid-template-columns: 1ch 10.8rem;
+  gap: 0.35rem 0.55rem;
+  border-bottom: 1px dashed var(--border);
+  padding: 0.45rem 0;
+}
+
+.loreFeed > li > p {
+  grid-column: 2;
+  margin: 0;
+  color: var(--muted);
+}
+
+.codexLoreLog {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.62rem;
+  height: 100%;
+  min-height: 0;
+}
+
+.codexLoreTabs {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.45rem;
+  min-height: 0;
+}
+
+.codexLoreTabInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.codexLoreTabList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.28rem;
+  font-size: var(--type-caption);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.codexLoreTabList label {
+  border: 1px dashed var(--border);
+  padding: 0.18rem 0.2rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.codexLoreTabList label:hover,
+.codexLoreTabList label:focus-visible {
+  color: var(--accent);
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+#codex-lore-tab-log:checked ~ .codexLoreTabList label[for="codex-lore-tab-log"],
+#codex-lore-tab-graph:checked
+  ~ .codexLoreTabList
+  label[for="codex-lore-tab-graph"] {
+  border-style: solid;
+  color: var(--accent);
+}
+
+.codexLoreTabPanel {
+  display: grid;
+  grid-column: 1;
+  grid-row: 2;
+  min-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#codex-lore-tab-log:checked ~ .codexLoreTabPanelLog,
+#codex-lore-tab-graph:checked ~ .codexLoreTabPanelGraph {
+  pointer-events: auto;
+  visibility: visible;
+  z-index: 1;
+}
+
+.lorePanel .panelBody {
+  overflow: hidden;
+  scrollbar-width: none;
+}
+
+.lorePanel .panelBody::-webkit-scrollbar {
+  display: none;
+}
+
+.codexLoreSummary {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 0.58rem;
+}
+
+.codexLoreFeed {
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 0;
+  scrollbar-width: none;
+}
+
+.codexLoreFeed::-webkit-scrollbar {
+  display: none;
+}
+
+.codexLoreGraphs {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: clamp(0.22rem, 0.9vh, 0.52rem);
+  height: 100%;
+  min-height: 0;
+  background: transparent;
+  color: var(--text);
+  overflow: hidden;
+}
+
+.codexLoreGraphHeader {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.34rem 0.7rem;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 1.4rem;
+}
+
+.codexLoreGraphHeader > div:first-child {
+  display: inline-flex;
+  min-width: 0;
+  gap: 0.42rem;
+  align-items: baseline;
+}
+
+.codexLoreGraphHeader strong {
+  color: var(--accent);
+  font-size: var(--type-micro);
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+}
+
+.codexLoreGraphHeader span {
+  color: var(--muted);
+  font-size: var(--type-micro);
+  line-height: var(--leading-tight);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.codexLoreGraphControls {
+  display: inline-flex;
+  flex: 1 1 18rem;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.codexLoreGraphRanges,
+.codexLoreChartModes {
+  display: inline-grid;
+  min-width: 0;
+}
+
+.codexLoreGraphRanges {
+  grid-template-columns: repeat(4, minmax(2.9rem, 1fr));
+  border: 1px solid color-mix(in srgb, var(--border) 88%, transparent);
+}
+
+.codexLoreChartModes {
+  position: relative;
+  grid-template-columns: repeat(2, minmax(3.35rem, 1fr));
+  z-index: 0;
+  isolation: isolate;
+  min-width: 7.25rem;
+  border: 1px solid color-mix(in srgb, var(--border) 88%, transparent);
+  background: color-mix(in srgb, var(--background) 84%, var(--surface-mix-target));
+  padding: 0.12rem;
+}
+
+.codexLoreChartModes::before {
+  position: absolute;
+  top: 0.12rem;
+  bottom: 0.12rem;
+  left: 0.12rem;
+  z-index: 0;
+  width: calc((100% - 0.24rem) / 2);
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent) 20%, transparent),
+      color-mix(in srgb, var(--neon-cyan) 15%, transparent)
+    );
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 52%, transparent);
+  content: "";
+  transform: translateX(0);
+  transition: transform 140ms ease;
+}
+
+.codexLoreChartModes[data-mode="line"]::before {
+  transform: translateX(100%);
+}
+
+.codexLoreGraphRanges button,
+.codexLoreChartModes button {
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: 700 var(--type-micro) / var(--leading-tight) var(--mono);
+  letter-spacing: 0;
+  min-height: 2rem;
+  padding: 0.42rem 0.5rem;
+  text-transform: uppercase;
+}
+
+.codexLoreGraphRanges button:not(:last-child) {
+  border-right: 1px dashed color-mix(in srgb, var(--soft-border) 74%, transparent);
+}
+
+.codexLoreChartModes button {
+  position: relative;
+  z-index: 1;
+}
+
+.codexLoreGraphRanges button:hover,
+.codexLoreGraphRanges button:focus-visible,
+.codexLoreGraphRanges button[aria-pressed="true"],
+.codexLoreChartModes button:hover,
+.codexLoreChartModes button:focus-visible,
+.codexLoreChartModes button[aria-pressed="true"] {
+  color: var(--accent);
+  outline: 0;
+}
+
+.codexLoreGraphRanges button:hover,
+.codexLoreGraphRanges button:focus-visible,
+.codexLoreGraphRanges button[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.codexLoreGraphGrid {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.2rem, 0.8vh, 0.46rem);
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.codexResourceChart {
+  --resource-color: var(--accent);
+
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-height: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  overflow: hidden;
+  transition:
+    background 140ms ease,
+    color 140ms ease;
+}
+
+.codexResourceChart:hover,
+.codexResourceChart:focus-within {
+  background: color-mix(in srgb, var(--resource-color) 3%, transparent);
+}
+
+.codexResourceChartTitle {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.45rem;
+  align-items: center;
+  border: 0;
+  background: transparent;
+  padding: 0.04rem 0 0.1rem;
+  font-size: var(--type-micro);
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+}
+
+.codexResourceChartTitle span {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 140ms ease;
+  white-space: nowrap;
+}
+
+.codexResourceChartTitle strong {
+  color: var(--resource-color);
+  font-variant-numeric: tabular-nums;
+  transition:
+    color 140ms ease,
+    text-shadow 140ms ease;
+}
+
+.codexResourceChart:hover .codexResourceChartTitle span,
+.codexResourceChart:focus-within .codexResourceChartTitle span {
+  color: var(--text);
+}
+
+.codexResourceChart:hover .codexResourceChartTitle strong,
+.codexResourceChart:focus-within .codexResourceChartTitle strong {
+  text-shadow: 0 0 0.75rem color-mix(in srgb, var(--resource-color) 44%, transparent);
+}
+
+.codexProjectResourceRows {
+  display: grid;
+  align-content: start;
+  gap: clamp(0.1rem, 0.58vh, 0.2rem);
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  scrollbar-width: none;
+}
+
+.codexProjectResourceRows::-webkit-scrollbar {
+  display: none;
+}
+
+.codexProjectResourceEmpty {
+  display: grid;
+  min-height: 5.5rem;
+  align-items: center;
+  margin: 0;
+  padding: 0.42rem;
+  color: var(--muted);
+  font-size: var(--type-micro);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.codexProjectResourceRows li {
+  min-width: 0;
+}
+
+.codexProjectResourceRow {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(5.8rem, 0.58fr) minmax(0, 1fr) 4.2rem;
+  gap: 0.34rem;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  border-left: 1px solid transparent;
+  appearance: none;
+  font-size: var(--type-micro);
+  font: inherit;
+  line-height: var(--leading-tight);
+  padding: 0.09rem 0.16rem 0.09rem 0.18rem;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  transition:
+    background 140ms ease,
+    border-color 140ms ease,
+    color 140ms ease,
+    transform 140ms ease;
+}
+
+.codexProjectResourceRowButton {
+  cursor: pointer;
+}
+
+.codexProjectResourceRowButton:focus-visible {
+  outline: 1px solid color-mix(in srgb, var(--resource-color) 72%, transparent);
+  outline-offset: 1px;
+}
+
+.codexProjectResourceRow:hover,
+.codexProjectResourceRow:focus-visible,
+.codexProjectResourceRows li:focus-within .codexProjectResourceRow {
+  border-left-color: color-mix(in srgb, var(--resource-color) 76%, transparent);
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--resource-color) 13%, transparent),
+      transparent 68%
+    );
+  transform: translateX(0.08rem);
+}
+
+.codexProjectResourceName {
+  display: inline-flex;
+  min-width: 0;
+  gap: 0.32rem;
+  align-items: center;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 140ms ease;
+  white-space: nowrap;
+}
+
+.codexProjectResourceName b {
+  flex: 0 0 auto;
+  min-width: 1.2rem;
+  border: 0;
+  background: transparent;
+  color: var(--resource-color);
+  font-size: 0.58rem;
+  text-align: center;
+  transition:
+    background 140ms ease,
+    box-shadow 140ms ease,
+    color 140ms ease;
+}
+
+.codexProjectResourceRow:hover .codexProjectResourceName,
+.codexProjectResourceRow:focus-visible .codexProjectResourceName,
+.codexProjectResourceRows li:focus-within .codexProjectResourceName {
+  color: var(--accent);
+}
+
+.codexProjectResourceRow:hover .codexProjectResourceName b,
+.codexProjectResourceRow:focus-visible .codexProjectResourceName b,
+.codexProjectResourceRows li:focus-within .codexProjectResourceName b {
+  background: color-mix(in srgb, var(--resource-color) 14%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--resource-color) 52%, transparent);
+}
+
+.codexProjectResourceTrack {
+  display: block;
+  height: 0.36rem;
+  min-width: 0;
+  background: color-mix(in srgb, var(--muted) 12%, transparent);
+  overflow: hidden;
+  transition:
+    background 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.codexProjectResourceTrack span {
+  display: block;
+  width: var(--project-resource-share);
+  height: 100%;
+  background: var(--resource-color);
+  transition:
+    box-shadow 140ms ease,
+    filter 140ms ease;
+}
+
+.codexProjectResourceRow:hover .codexProjectResourceTrack,
+.codexProjectResourceRow:focus-visible .codexProjectResourceTrack,
+.codexProjectResourceRows li:focus-within .codexProjectResourceTrack {
+  background: color-mix(in srgb, var(--resource-color) 16%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--resource-color) 24%, transparent);
+}
+
+.codexProjectResourceRow:hover .codexProjectResourceTrack span,
+.codexProjectResourceRow:focus-visible .codexProjectResourceTrack span,
+.codexProjectResourceRows li:focus-within .codexProjectResourceTrack span {
+  box-shadow: 0 0 0.72rem color-mix(in srgb, var(--resource-color) 58%, transparent);
+  filter: saturate(1.2);
+}
+
+.codexProjectResourceRows strong {
+  color: var(--resource-color);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  transition:
+    color 140ms ease,
+    text-shadow 140ms ease;
+  white-space: nowrap;
+}
+
+.codexProjectResourceRow:hover strong,
+.codexProjectResourceRow:focus-visible strong,
+.codexProjectResourceRows li:focus-within strong {
+  color: var(--accent);
+  text-shadow: 0 0 0.6rem color-mix(in srgb, var(--resource-color) 48%, transparent);
+}
+
+.codexProjectResourceLineChart {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+}
+
+.codexProjectResourceArea {
+  fill: color-mix(in srgb, var(--resource-color) 9%, transparent);
+}
+
+.codexProjectResourceLine {
+  fill: none;
+  stroke: var(--resource-color);
+  stroke-linecap: square;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  transition:
+    filter 140ms ease,
+    stroke-width 140ms ease;
+}
+
+.codexProjectResourcePoints circle {
+  fill: var(--resource-color);
+  stroke: var(--background);
+  stroke-width: 0.7;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    filter 140ms ease,
+    stroke 140ms ease,
+    stroke-width 140ms ease,
+    transform 140ms ease;
+}
+
+.codexProjectResourcePoints circle[role="button"] {
+  cursor: pointer;
+}
+
+.codexProjectResourceLineChart:hover .codexProjectResourceLine,
+.codexProjectResourceLineChart:focus-within .codexProjectResourceLine {
+  filter: drop-shadow(0 0 0.42rem color-mix(in srgb, var(--resource-color) 52%, transparent));
+  stroke-width: 2.35;
+}
+
+.codexProjectResourcePoints circle:hover,
+.codexProjectResourcePoints circle:focus {
+  filter: drop-shadow(0 0 0.52rem color-mix(in srgb, var(--resource-color) 78%, transparent));
+  stroke: var(--accent);
+  stroke-width: 1.35;
+  transform: scale(1.45);
+}
+
+.loreFeed > .codexLoreEntry {
+  position: relative;
+  grid-template-columns: 1ch 5.2rem minmax(0, 1fr);
+  gap: 0.2rem 0.5rem;
+  padding: 0.34rem 0.36rem 0.36rem 0;
+}
+
+.loreFeed > .codexLoreEntry::before {
+  position: absolute;
+  top: 0.45rem;
+  bottom: 0.45rem;
+  left: 6.5rem;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    color-mix(in srgb, var(--accent) 42%, transparent),
+    transparent
+  );
+  content: "";
+  pointer-events: none;
+}
+
+.loreFeed > .codexLoreEntry::after {
+  position: absolute;
+  top: 0.54rem;
+  left: 6.33rem;
+  width: 0.34rem;
+  height: 0.34rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 58%, transparent);
+  background: var(--background);
+  content: "";
+  pointer-events: none;
+  transform: rotate(45deg);
+}
+
+.loreFeed > .codexLoreEntry[data-kind="milestone"]::after {
+  background: color-mix(in srgb, var(--accent) 26%, var(--background));
+}
+
+.loreFeed > .codexLoreEntry:nth-child(4n + 1) {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 5%, transparent),
+    transparent 56%
+  );
+}
+
+.codexLoreEntry > span:first-child {
+  color: var(--accent);
+  line-height: var(--leading-tight);
+}
+
+.codexLoreEntry > time {
+  font-size: var(--type-micro);
+  line-height: var(--leading-tight);
+  white-space: nowrap;
+}
+
+.codexLoreEntryBody {
+  display: grid;
+  grid-column: 3;
+  gap: 0.1rem;
+  min-width: 0;
+  padding-left: 0.24rem;
+}
+
+.codexLoreEntryMeta {
+  display: flex;
+  min-width: 0;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.codexLoreEntry strong {
+  color: var(--accent);
+  font-size: var(--type-micro);
+  line-height: var(--leading-tight);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.codexLoreEntryProject {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+}
+
+.codexLoreProjectButton,
+.codexLoreProjectName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.codexLoreProjectButton {
+  border: 0;
+  margin: 0 -0.08rem;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0 0.08rem;
+  text-align: left;
+  text-transform: inherit;
+}
+
+.codexLoreProjectButton:hover,
+.codexLoreProjectButton:focus-visible {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  box-shadow: 0 0 0 1px var(--accent);
+  color: var(--text);
+  outline: 0;
+}
+
+.codexLoreProjectRank {
+  flex: 0 0 auto;
+}
+
+.codexLoreEntryStats {
+  display: inline-grid;
+  flex: 0 0 auto;
+  grid-template-columns: repeat(3, auto);
+  gap: 0.18rem;
+  margin-left: auto;
+  color: var(--text);
+  font-size: var(--type-micro);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: var(--leading-tight);
+}
+
+.codexLoreEntryStats span {
+  border: 1px solid color-mix(in srgb, var(--border) 58%, transparent);
+  background: color-mix(in srgb, var(--surface-mix-target) 22%, transparent);
+  padding: 0.06rem 0.22rem;
+}
+
+.codexLoreEntry h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: var(--type-small);
+  line-height: var(--leading-ui);
+  overflow-wrap: anywhere;
+}
+
+.codexLoreEntry p {
+  grid-column: auto;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.codexPromptRunes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  min-width: 0;
+  margin: 0.15rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.codexPromptRunes li {
+  display: inline-grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  max-width: 100%;
+  gap: 0.28rem;
+  border: 1px solid color-mix(in srgb, var(--border) 62%, transparent);
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  padding: 0.13rem 0.3rem;
+}
+
+.codexPromptRunes b {
+  color: var(--accent);
+  font-size: var(--type-micro);
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.codexPromptRunes span {
+  color: var(--muted);
+  font-size: var(--type-micro);
+  line-height: var(--leading-body);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.codexLoreEntry em {
+  display: block;
+  color: var(--muted);
+  font-size: var(--type-micro);
+  font-style: normal;
+  line-height: var(--leading-body);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.loreFeed > .codexLoreSentinel {
+  grid-template-columns: 1ch minmax(0, 1fr);
+  min-height: 1.4rem;
+  border-bottom: 0;
+  padding: 0.2rem 0 0.05rem;
+  color: var(--muted);
+}
+
+.codexLoreSentinel small {
+  grid-column: 2;
+  color: var(--muted);
+  font-size: var(--type-micro);
+  line-height: var(--leading-tight);
+}
+
+.skillPanel .panelBody {
+  overflow: hidden;
+}
+
+.skillTabs {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.45rem;
+  height: 100%;
+  min-height: 0;
+}
+
+.skillTabInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.skillTabList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.28rem;
+  font-size: var(--type-caption);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.skillTabList label {
+  border: 1px dashed var(--border);
+  padding: 0.18rem 0.2rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.skillTabList label:hover,
+.skillTabList label:focus-visible {
+  color: var(--accent);
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+#skill-tab-era:checked ~ .skillTabList label[for="skill-tab-era"],
+#skill-tab-tech:checked ~ .skillTabList label[for="skill-tab-tech"],
+#skill-tab-relics:checked ~ .skillTabList label[for="skill-tab-relics"] {
+  border-style: solid;
+  color: var(--accent);
+}
+
+.skillTabPanel {
+  display: block;
+  grid-column: 1;
+  grid-row: 2;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  pointer-events: none;
+  scrollbar-width: thin;
+  visibility: hidden;
+}
+
+.skillTabPanelEra {
+  overflow: hidden;
+}
+
+#skill-tab-era:checked ~ .skillTabPanelEra,
+#skill-tab-tech:checked ~ .skillTabPanelTech,
+#skill-tab-relics:checked ~ .skillTabPanelRelics {
+  pointer-events: auto;
+  visibility: visible;
+  z-index: 1;
+}
+
+.eraMeme {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0.28rem 0;
+  height: 100%;
+  min-height: 0;
+  border-top: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+  padding-block: 0.24rem;
+}
+
+.eraMeme > :nth-child(2),
+.eraMeme > :nth-child(4) {
+  border-left: 1px dashed var(--border);
+}
+
+.eraSceneCell {
+  display: grid;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+  padding-inline: 0.28rem;
+}
+
+.eraSceneImage {
+  align-self: stretch;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  filter: var(--era-scene-filter);
+  user-select: none;
+}
+
+.eraMemeCard {
+  display: grid;
+  gap: 0.05rem;
+  border-top: 1px dashed var(--border);
+  padding: 0.18rem 0.28rem 0;
+  font-size: var(--type-micro);
+  line-height: 1.16;
+}
+
+.eraMemeCard span {
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.eraMemeCard strong {
+  font-size: var(--type-caption);
+}
+
+.eraMemeCard p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.statList {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.statRow {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr) 2.75rem max-content;
+  gap: 0.34rem;
+  align-items: center;
+  width: 100%;
+  min-height: 1.28rem;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-size: var(--type-caption);
+  line-height: 1.12;
+  text-align: left;
+}
+
+.statIcon {
+  display: grid;
+  place-items: center;
+  width: 1rem;
+  height: 1rem;
+  color: var(--accent);
+}
+
+.statIcon svg {
+  width: 0.92rem;
+  height: 0.92rem;
+}
+
+.statMeter {
+  display: block;
+  width: 2.75rem;
+  height: 0.38rem;
+  border: 1px solid var(--border);
+  padding: 1px;
+}
+
+.statMeter span {
+  display: block;
+  width: var(--stat-value);
+  height: 100%;
+  background: var(--accent);
+}
+
+.statRow span:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.statRow strong {
+  white-space: nowrap;
+}
+
+.coreStats {
+  height: 100%;
+  min-height: 0;
+  border-left: 1px solid var(--border);
+  padding-left: 0.7rem;
+  font-size: var(--type-small);
+}
+
+.coreStats h3 {
+  margin: 0;
+  font-size: var(--type-ui);
+}
+
+.coreStats p {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 0.45rem;
+  margin: 0.23rem 0;
+}
+
+.coreStatsList {
+  display: grid;
+  align-content: start;
+}
+
+.coreStats strong {
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.skillTabPanelRelics .coreStats {
+  border-left: 0;
+  padding-left: 0;
+}
+
+@media (max-width: 760px) {
+  .internalResizeStack,
+  .internalResizePane {
+    display: contents;
+  }
+
+  .internalResizeHandle {
+    display: none;
+  }
+
+}
+
+@container (max-width: 560px) {
+  .questTable {
+    --quest-grid-columns: minmax(7rem, 1fr) minmax(5rem, 0.4fr)
+      minmax(5rem, 0.44fr) minmax(2.7rem, 0.22fr)
+      minmax(2.5rem, 0.2fr) minmax(3.35rem, 0.28fr);
+  }
+
+  .questHead,
+  .questRow {
+    gap: 0.26rem;
+  }
+
+  .questHead {
+    padding-right: 0.18rem;
+  }
+
+  .questNameCell small {
+    white-space: normal;
+  }
+
+  .questProgressCell {
+    font-size: var(--type-micro);
+  }
+
+  .questMetricCell {
+    font-size: var(--type-micro);
+  }
+
+  .codexDossierGrid,
+  .codexLoreSummary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .codexLoreGraphHeader {
+    align-items: flex-start;
+  }
+
+  .codexLoreGraphControls,
+  .codexLoreGraphRanges,
+  .codexLoreChartModes {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .codexResourceChart {
+    min-height: 0;
+  }
+
+  .codexProjectResourceRow {
+    grid-template-columns: minmax(4.6rem, 0.7fr) minmax(3.8rem, 1fr) 3.8rem;
+    gap: 0.26rem;
+  }
+
+  .codexPromptRunes li {
+    grid-template-columns: 1fr;
+  }
+
+  .questNotice {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .questNotice .projectStatus,
+  .questNotice small {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+
+  .questNotice .questProgressCell {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .coreStats {
+    border-top: 1px dashed var(--border);
+    border-left: 0;
+    padding-top: 0.55rem;
+    padding-left: 0;
+  }
+}
+
+@container (max-width: 560px) {
+  .articlesLayout {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(190px, 1fr) 1px minmax(120px, 0.9fr);
+  }
+
+  .articleSplitRail {
+    width: auto;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .articleSplitRail::before,
+  .articleSplitRail::after {
+    display: none;
+  }
+
+  .articleIndexPane {
+    border-top: 1px dashed var(--border);
+  }
+}
+
+@container (max-width: 430px) {
+  .statRow {
+    grid-template-columns: 1rem minmax(0, 1fr) 2.75rem max-content;
+    gap: 0.18rem;
+    font-size: var(--type-micro);
+  }
+
+  .statRow span:nth-child(2) {
+    white-space: nowrap;
+  }
+}

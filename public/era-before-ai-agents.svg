@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" role="img" aria-labelledby="title desc">
+  <title id="title">Before Agent Era looping ASCII scene</title>
+  <desc id="desc">Looping ASCII scene with a person walking along an endless road past flowers and trees.</desc>
+  <style>
+    @keyframes beforeBack {
+      from { transform: translateX(0); }
+      to { transform: translateX(-520px); }
+    }
+    @keyframes beforeGround {
+      from { transform: translateX(0); }
+      to { transform: translateX(-520px); }
+    }
+    @keyframes beforeRoad {
+      from { transform: translateX(0); }
+      to { transform: translateX(-520px); }
+    }
+    @keyframes beforeBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes beforeStepA {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes beforeStepB {
+      0%, 49% { opacity: 0; }
+      50%, 100% { opacity: 1; }
+    }
+    .beforeBackLoop { animation: beforeBack 13s linear infinite; }
+    .beforeGroundLoop { animation: beforeGround 5.8s linear infinite; }
+    .beforeRoadLoop { animation: beforeRoad 3.2s linear infinite; }
+    .beforeWalkerA {
+      animation:
+        beforeBob 0.72s ease-in-out infinite,
+        beforeStepA 0.72s steps(1, end) infinite;
+    }
+    .beforeWalkerB {
+      animation:
+        beforeBob 0.72s ease-in-out infinite,
+        beforeStepB 0.72s steps(1, end) infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .beforeBackLoop,
+      .beforeGroundLoop,
+      .beforeRoadLoop,
+      .beforeWalkerA,
+      .beforeWalkerB { animation: none; }
+      .beforeWalkerB { opacity: 0; }
+    }
+  </style>
+  <rect width="100%" height="100%" fill="transparent"/>
+  <g class="beforeBackLoop">
+    <text fill="#15120f" stroke="#15120f" stroke-width="0.36" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="14" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="0" y="18">    .--.        .-.          .--.        .-.          .--.        .-.</tspan>
+      <tspan x="0" y="36"> .-(    )-.  .-(   )-.   .-(    )-.  .-(   )-.   .-(    )-.  .-(   )-.</tspan>
+      <tspan x="0" y="58">      /\          /\            /\          /\            /\          /\</tspan>
+      <tspan x="0" y="76">     /  \   /\   /  \    /\    /  \   /\   /  \    /\    /  \   /\   /  \</tspan>
+      <tspan x="0" y="94">    /_/\_\ /  \ /_/\_\  /  \  /_/\_\ /  \ /_/\_\  /  \  /_/\_\ /  \ /_/\_\</tspan>
+      <tspan x="0" y="112">      ||  /_/\_\  ||   /_/\_\   ||  /_/\_\  ||   /_/\_\   ||  /_/\_\  ||</tspan>
+    </text>
+    <text transform="translate(520 0)" fill="#15120f" stroke="#15120f" stroke-width="0.36" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="14" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="0" y="18">    .--.        .-.          .--.        .-.          .--.        .-.</tspan>
+      <tspan x="0" y="36"> .-(    )-.  .-(   )-.   .-(    )-.  .-(   )-.   .-(    )-.  .-(   )-.</tspan>
+      <tspan x="0" y="58">      /\          /\            /\          /\            /\          /\</tspan>
+      <tspan x="0" y="76">     /  \   /\   /  \    /\    /  \   /\   /  \    /\    /  \   /\   /  \</tspan>
+      <tspan x="0" y="94">    /_/\_\ /  \ /_/\_\  /  \  /_/\_\ /  \ /_/\_\  /  \  /_/\_\ /  \ /_/\_\</tspan>
+      <tspan x="0" y="112">      ||  /_/\_\  ||   /_/\_\   ||  /_/\_\  ||   /_/\_\   ||  /_/\_\  ||</tspan>
+    </text>
+  </g>
+  <g class="beforeGroundLoop">
+    <text fill="#15120f" stroke="#15120f" stroke-width="0.34" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="13" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="0" y="176">  *   .   *    .   *   .   *    .   *   .   *    .   *   .   *    .</tspan>
+      <tspan x="0" y="194"> \|/     \|/      \|/     \|/      \|/     \|/      \|/     \|/</tspan>
+    </text>
+    <text transform="translate(520 0)" fill="#15120f" stroke="#15120f" stroke-width="0.34" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="13" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="0" y="176">  *   .   *    .   *   .   *    .   *   .   *    .   *   .   *    .</tspan>
+      <tspan x="0" y="194"> \|/     \|/      \|/     \|/      \|/     \|/      \|/     \|/</tspan>
+    </text>
+  </g>
+  <g class="beforeRoadLoop">
+    <text fill="#15120f" stroke="#15120f" stroke-width="0.42" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="15" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="0" y="208">___.____.___.____.___.____.___.____.___.____.___.____.___.____.___.</tspan>
+      <tspan x="0" y="228">-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --</tspan>
+      <tspan x="0" y="246">__/ \____/ \____/ \____/ \____/ \____/ \____/ \____/ \____/ \____/</tspan>
+    </text>
+    <text transform="translate(520 0)" fill="#15120f" stroke="#15120f" stroke-width="0.42" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="15" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+      <tspan x="0" y="208">___.____.___.____.___.____.___.____.___.____.___.____.___.____.___.</tspan>
+      <tspan x="0" y="228">-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --</tspan>
+      <tspan x="0" y="246">__/ \____/ \____/ \____/ \____/ \____/ \____/ \____/ \____/ \____/</tspan>
+    </text>
+  </g>
+  <text class="beforeWalker beforeWalkerA" fill="#15120f" stroke="#15120f" stroke-width="0.5" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="18" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+    <tspan x="222" y="112">    .-.</tspan>
+    <tspan x="222" y="134">   (0 0)</tspan>
+    <tspan x="222" y="156">  __| |__</tspan>
+    <tspan x="222" y="178"> /  |_|  \</tspan>
+    <tspan x="222" y="200">    / \</tspan>
+  </text>
+  <text class="beforeWalker beforeWalkerB" fill="#15120f" stroke="#15120f" stroke-width="0.5" paint-order="stroke fill" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="18" font-weight="900" dominant-baseline="hanging" xml:space="preserve">
+    <tspan x="222" y="112">    .-.</tspan>
+    <tspan x="222" y="134">   (0 0)</tspan>
+    <tspan x="222" y="156">  __| |__</tspan>
+    <tspan x="222" y="178"> /  |_|  \</tspan>
+    <tspan x="222" y="200">    \ /</tspan>
+  </text>
+</svg>

@@ -1,0 +1,365 @@
+.adminShell {
+  min-height: 100svh;
+  padding: clamp(16px, 3vw, 36px);
+}
+
+.adminLoginPanel,
+.adminConsole {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  box-shadow: 0 18px 60px var(--shadow-strong);
+}
+
+.adminLoginPanel {
+  width: min(520px, 100%);
+}
+
+.adminPanelHeader,
+.adminTopbar,
+.adminSaveBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 16px;
+}
+
+.adminPanelHeader,
+.adminTopbar span,
+.adminPanelTitle span,
+.adminCommandBox span,
+.adminStat span {
+  color: var(--accent);
+  font-size: var(--type-caption);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.adminLoginBody {
+  display: grid;
+  gap: 1rem;
+  padding: 26px;
+}
+
+.adminLoginBody h1,
+.adminTopbar h1 {
+  max-width: none;
+  margin: 0;
+  font-family: var(--serif);
+  letter-spacing: 0;
+}
+
+.adminLoginBody h1 {
+  font-size: clamp(2.2rem, 7vw, 3.7rem);
+}
+
+.adminLoginBody p,
+.adminSaveBar p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--type-body);
+  line-height: var(--leading-copy);
+}
+
+.adminLoginForm,
+.adminFieldGrid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.adminLoginForm label,
+.adminFieldGrid label {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  font-size: var(--type-caption);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.adminLoginForm input,
+.adminFieldGrid input,
+.adminFieldGrid select,
+.adminProjectRow select {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: color-mix(in srgb, var(--background) 82%, var(--surface-mix-target));
+  color: var(--text);
+  font: 500 var(--type-ui) / var(--leading-ui) var(--mono);
+  letter-spacing: 0;
+  padding: 0.58rem 0.66rem;
+}
+
+.adminLoginForm input:focus-visible,
+.adminFieldGrid input:focus-visible,
+.adminFieldGrid select:focus-visible,
+.adminProjectRow select:focus-visible,
+.adminTopbar a:focus-visible,
+.adminTopbar button:focus-visible,
+.adminSaveBar button:focus-visible,
+.adminLoginForm button:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+.adminLoginForm button,
+.adminTopbar button,
+.adminSaveBar button {
+  border: 1px solid var(--border);
+  background: var(--text);
+  color: var(--background);
+  cursor: pointer;
+  font: 700 var(--type-ui) / var(--leading-tight) var(--mono);
+  letter-spacing: 0;
+  padding: 0.68rem 0.9rem;
+  text-transform: uppercase;
+}
+
+.adminLoginForm button:disabled,
+.adminSaveBar button:disabled {
+  cursor: progress;
+  opacity: 0.62;
+}
+
+.adminHint,
+.adminError {
+  border-left: 2px solid var(--accent);
+  padding: 0.68rem 0.8rem;
+}
+
+.adminError {
+  border-left-color: var(--neon-pink);
+  color: var(--text) !important;
+}
+
+.adminConsole {
+  display: grid;
+  min-height: calc(100svh - clamp(32px, 6vw, 72px));
+}
+
+.adminTopbar {
+  align-items: flex-start;
+}
+
+.adminTopbar h1 {
+  font-size: clamp(2rem, 5vw, 4.6rem);
+  line-height: 1;
+}
+
+.adminTopbar nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.adminTopbar a {
+  border: 1px solid var(--border);
+  color: var(--text);
+  font: 700 var(--type-ui) / var(--leading-tight) var(--mono);
+  padding: 0.68rem 0.9rem;
+  text-transform: uppercase;
+}
+
+.adminTopbar button {
+  background: transparent;
+  color: var(--text);
+}
+
+.adminStatGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-bottom: 1px solid var(--border);
+}
+
+.adminStat {
+  display: grid;
+  gap: 0.26rem;
+  min-width: 0;
+  border-right: 1px dashed var(--soft-border);
+  padding: 14px 16px;
+}
+
+.adminStat:last-child {
+  border-right: 0;
+}
+
+.adminStat strong {
+  overflow: hidden;
+  font-size: var(--type-strong);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adminLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(340px, 0.7fr);
+  gap: 16px;
+  padding: 16px;
+}
+
+.adminPanel {
+  min-width: 0;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--paper) 84%, transparent);
+}
+
+.adminPanelTitle {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding: 12px 14px;
+}
+
+.adminPanelTitle h2,
+.adminPanelTitle p {
+  margin: 0;
+}
+
+.adminPanelTitle h2 {
+  font-size: var(--type-strong);
+  line-height: var(--leading-tight);
+}
+
+.adminPanelTitle p {
+  color: var(--muted);
+  font-size: var(--type-caption);
+  line-height: var(--leading-ui);
+  text-align: right;
+}
+
+.adminProjectList,
+.adminSideStack {
+  display: grid;
+  gap: 10px;
+}
+
+.adminProjectList {
+  max-height: 620px;
+  overflow: auto;
+  padding: 10px;
+  scrollbar-width: thin;
+}
+
+.adminProjectRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.45fr) 128px;
+  gap: 0.75rem;
+  align-items: center;
+  border: 1px dashed var(--soft-border);
+  padding: 10px;
+}
+
+.adminProjectMain,
+.adminProjectMeta {
+  min-width: 0;
+}
+
+.adminProjectMain {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.adminProjectMain strong {
+  font-size: var(--type-ui);
+}
+
+.adminProjectMain span,
+.adminProjectMeta span {
+  color: var(--muted);
+  font-size: var(--type-caption);
+  line-height: var(--leading-ui);
+}
+
+.adminProjectMain span {
+  overflow-wrap: anywhere;
+}
+
+.adminProjectMeta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.34rem;
+}
+
+.adminProjectMeta span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adminSideStack {
+  align-content: start;
+}
+
+.adminFieldGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 14px;
+}
+
+.adminFullField,
+.adminToggle {
+  grid-column: 1 / -1;
+}
+
+.adminToggle {
+  display: flex !important;
+  align-items: center;
+  gap: 0.55rem;
+  text-transform: none !important;
+}
+
+.adminToggle input {
+  width: 1rem;
+}
+
+.adminCommandBox {
+  display: grid;
+  gap: 0.35rem;
+  border-top: 1px dashed var(--soft-border);
+  margin: 0 14px 14px;
+  padding-top: 12px;
+}
+
+.adminCommandBox code {
+  overflow: auto;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--background) 86%, var(--surface-mix-target));
+  color: var(--text);
+  font-size: var(--type-caption);
+  padding: 0.65rem;
+}
+
+.adminSaveBar {
+  border-top: 1px solid var(--border);
+  border-bottom: 0;
+}
+
+@media (max-width: 860px) {
+  .adminStatGrid,
+  .adminLayout,
+  .adminProjectRow,
+  .adminFieldGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .adminTopbar,
+  .adminSaveBar,
+  .adminPanelTitle {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .adminPanelTitle p {
+    text-align: left;
+  }
+
+  .adminProjectMeta {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
