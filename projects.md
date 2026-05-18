@@ -39,7 +39,7 @@ You can follow my progress on OpenGuild, Telegram, X, RSS, and Email.
 
 #### TON index, analytics and API
 
-- Status: Press F, to pay respect
+- Status: Paused
 - Goals: semi-completed
 - Sub-projects: GraphQL API, Liteservers providing, DeFi API, portfolio app with unique PnL calculation
 - What was done: unique API for TON DeFi. Contract with top-1 wallet in Telegram, top1 liteserver provider, $500k raised
@@ -50,10 +50,10 @@ You can follow my progress on OpenGuild, Telegram, X, RSS, and Email.
 
 #### First NFT marketplace on TON
 
-- Status: Press F, to pay respect
+- Status: Paused
 - Goals: semi-completed
 - What was done: First TON NFT marketplace, $5m turnover with $500k+ revenue for half-year.
-- Why was closed: We bet on community NFTs rather than brand-driven ones. Telegram-native NFTs like gifts and anonymous numbers became popular, while the old community NFT market lost value.
+- Why was paused: We bet on community NFTs rather than brand-driven ones. Telegram-native NFTs like gifts and anonymous numbers became popular, while the old community NFT market lost value.
 - My role: CEO, co-founder
 
 ## Sanges

@@ -23,6 +23,14 @@ export function getProjectWindowTitle(quest: Pick<Quest, "name">) {
   return `PROJECT ${quest.name}`;
 }
 
+function getProjectChromeState(quest: Quest, labels: ProjectPopoverCopy) {
+  if (quest.status === "PAUSED") {
+    return quest.displayStatus ?? labels.details.paused;
+  }
+
+  return labels.liveDossier;
+}
+
 export function getProjectWindowConfig({
   codexLabels,
   labels,
@@ -67,11 +75,7 @@ export function ProjectWindowContent({
     <section className="projectWindowContent">
       <div className="projectPopoverChrome" aria-hidden="true">
         <span>PROJECT {quest.name.toLocaleUpperCase()}</span>
-        <span>
-          {quest.rip
-            ? `${labels.ripPrefix} ${quest.rip}`
-            : labels.liveDossier}
-        </span>
+        <span>{getProjectChromeState(quest, labels)}</span>
       </div>
 
       <header className="projectHoverHeader">

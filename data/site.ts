@@ -42,7 +42,6 @@ export type Quest = {
   readonly pausedReason?: string;
   readonly subprojects?: readonly string[];
   readonly readMore?: string;
-  readonly rip?: string;
 };
 
 export type Stat = {
@@ -335,8 +334,8 @@ export const pausedQuests = [
     id: "dton",
     name: "dTON",
     status: "PAUSED",
-    displayStatus: "Paused legend",
-    progress: 84,
+    displayStatus: "Paused",
+    progress: 100,
     summary: "TON index, analytics, API, liteservers, and DeFi data stack",
     tagline: "TON data infrastructure arc",
     detail: "$500k raised, top wallet contract, top liteserver provider.",
@@ -363,14 +362,13 @@ export const pausedQuests = [
     ],
     readMore:
       "dTON was not a toy project: it carried real infra, real customers, and hard production problems. The arc paused when the TON market direction stopped matching the scale of the original company bet.",
-    rip: "05.2024",
   },
   {
     id: "disintar",
     name: "Disintar",
     status: "PAUSED",
-    displayStatus: "Completed arc",
-    progress: 91,
+    displayStatus: "Paused",
+    progress: 100,
     summary: "First NFT marketplace on TON",
     tagline: "First TON NFT marketplace arc",
     detail: "$5m turnover and $500k+ revenue in half a year.",
@@ -391,7 +389,6 @@ export const pausedQuests = [
     ],
     readMore:
       "Disintar proved early TON NFT demand and shipped before the category was obvious. The original community-NFT thesis faded, but the project left a real mark on the ecosystem.",
-    rip: "11.2023",
   },
 ] as const satisfies readonly Quest[];
 

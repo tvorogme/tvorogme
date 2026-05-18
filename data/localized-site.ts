@@ -84,7 +84,6 @@ export type ProjectPopoverCopy = {
   readonly openWindow: string;
   readonly progress: string;
   readonly progressAriaSuffix: string;
-  readonly ripPrefix: string;
   readonly signals: string;
   readonly subProjects: string;
 };
@@ -394,7 +393,7 @@ const englishUi = {
       questline: "QUESTLINE",
       status: "STATUS",
     },
-    questPausedTab: "Paused Legends",
+    questPausedTab: "Paused",
     relicLoadoutLabel: "Relic loadout",
     relicLoadoutTitle: "Relic Loadout",
     skillTabs: {
@@ -423,7 +422,6 @@ const englishUi = {
     openWindow: "Open project window",
     progress: "Progress",
     progressAriaSuffix: "progress",
-    ripPrefix: "rip",
     signals: "Signals",
     subProjects: "Sub-projects",
   },
@@ -558,7 +556,7 @@ const siteCopies = {
         description:
           "Первый NFT-маркетплейс на TON, построенный до зрелого NFT-рынка в экосистеме и подтвержденный реальным оборотом.",
         detail: "$5m оборота и $500k+ выручки за полгода.",
-        displayStatus: "Завершенная арка",
+        displayStatus: "Пауза",
         goal: "Создать первую серьезную площадку NFT-торговли для экосистемы TON.",
         outcome:
           "$5m оборота и $500k+ выручки за полгода как первый NFT-маркетплейс на TON.",
@@ -582,7 +580,7 @@ const siteCopies = {
           "Серьезная инфраструктурная компания для TON: индексатор, аналитика, GraphQL API, лайтсерверы, DeFi API и инструменты портфеля с уникальным расчетом PnL.",
         detail:
           "Привлечено $500k, подписан контракт с ведущим кошельком, занята позиция ведущего провайдера лайтсерверов.",
-        displayStatus: "Легенда на паузе",
+        displayStatus: "Пауза",
         goal: "Сделать TON-данные надежными для кошельков, DeFi-продуктов и создателей.",
         outcome:
           "Привлечено $500k, подписан контракт с ведущим кошельком в Telegram, занята позиция ведущего провайдера лайтсерверов и создан уникальный TON DeFi API.",
@@ -936,7 +934,7 @@ const siteCopies = {
           questline: "КВЕСТ",
           status: "СТАТУС",
         },
-        questPausedTab: "Легенды на паузе",
+        questPausedTab: "Пауза",
         relicLoadoutLabel: "Набор реликвий",
         relicLoadoutTitle: "Набор реликвий",
         skillTabs: {
@@ -965,7 +963,6 @@ const siteCopies = {
         openWindow: "Открыть окно проекта",
         progress: "Прогресс",
         progressAriaSuffix: "прогресс",
-        ripPrefix: "rip",
         signals: "Сигналы",
         subProjects: "Подпроекты",
       },
@@ -1066,7 +1063,7 @@ const siteCopies = {
         description:
           "TON 上第一个 NFT marketplace，在生态拥有成熟 NFT 市场之前构建，并通过真实交易量证明。",
         detail: "半年内 $5m turnover 和 $500k+ revenue。",
-        displayStatus: "已完成弧线",
+        displayStatus: "暂停",
         goal: "为 TON 生态创建第一个严肃的 NFT 交易场所。",
         outcome:
           "作为 TON 上第一个 NFT marketplace，半年内实现 $5m turnover 和 $500k+ revenue。",
@@ -1090,7 +1087,7 @@ const siteCopies = {
           "一家严肃的 TON 基础设施公司：indexer、analytics、GraphQL API、liteservers、DeFi API，以及带独特 PnL 计算的 portfolio tooling。",
         detail:
           "融资 $500k，拿下顶级 wallet 合约，成为顶级 liteserver provider。",
-        displayStatus: "暂停传奇",
+        displayStatus: "暂停",
         goal: "让 TON 数据对 wallets、DeFi 产品和 builders 可靠可用。",
         outcome:
           "融资 $500k，与 Telegram 中的顶级 wallet 签约，成为顶级 liteserver provider，并拥有独特 TON DeFi API。",
@@ -1406,7 +1403,7 @@ const siteCopies = {
           questline: "任务线",
           status: "状态",
         },
-        questPausedTab: "暂停传奇",
+        questPausedTab: "暂停",
         relicLoadoutLabel: "遗物配置",
         relicLoadoutTitle: "遗物配置",
         skillTabs: {
@@ -1435,7 +1432,6 @@ const siteCopies = {
         openWindow: "打开项目窗口",
         progress: "进度",
         progressAriaSuffix: "进度",
-        ripPrefix: "rip",
         signals: "信号",
         subProjects: "子项目",
       },
