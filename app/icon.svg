@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="sky" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06131c"/>
+      <stop offset="0.48" stop-color="#0c1022"/>
+      <stop offset="1" stop-color="#1d1232"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="18" y1="14" x2="48" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8ef8ff"/>
+      <stop offset="0.55" stop-color="#f7f2a1"/>
+      <stop offset="1" stop-color="#ff6ad5"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="64" height="64" rx="15" fill="url(#sky)"/>
+  <path
+    d="M11 36c11.5 9.5 30.7 9.4 42-2.4M12.5 25.7c11.8-8.2 29.1-7.8 39 1.1"
+    fill="none"
+    stroke="#39f1ff"
+    stroke-linecap="round"
+    stroke-opacity="0.34"
+    stroke-width="2"
+  />
+  <path
+    d="M32 10.5l4 11.2 11.5 2.8-8.7 7.4.8 11.8L29.5 37.6 18.4 42l2.8-11.5-7.6-9.2 11.9-1 6.5-9.8z"
+    fill="#0b1827"
+    stroke="url(#mark)"
+    stroke-linejoin="round"
+    stroke-width="2.4"
+    filter="url(#glow)"
+  />
+  <path
+    d="M24.5 25.6h15M32 25.8v17.1M25.2 42.9h13.5"
+    fill="none"
+    stroke="#fff8c9"
+    stroke-linecap="round"
+    stroke-width="4.4"
+  />
+  <path
+    d="M24.5 25.6h15M32 25.8v17.1M25.2 42.9h13.5"
+    fill="none"
+    stroke="#0b1020"
+    stroke-linecap="round"
+    stroke-width="2"
+  />
+  <circle cx="48.5" cy="17" r="2.3" fill="#ff6ad5"/>
+  <circle cx="16" cy="47" r="1.9" fill="#8ef8ff"/>
+</svg>

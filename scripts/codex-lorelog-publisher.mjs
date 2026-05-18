@@ -70,12 +70,6 @@ const PROJECTS = [
     roots: [path.join(path.dirname(WORKSPACE_ROOT), "sanges-second")],
   },
   {
-    aliases: ["openguild", "open guild", "guild", "quest board"],
-    id: "openguild",
-    name: "OpenGuild",
-    roots: [path.join(path.dirname(WORKSPACE_ROOT), "openguild")],
-  },
-  {
     aliases: ["mxfd", "finance", "financial home-office"],
     id: "mxfd",
     name: "Mxfd",

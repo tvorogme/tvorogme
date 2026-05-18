@@ -219,26 +219,6 @@ export const activeQuests = [
     readMore:
       "This is the home base: the site turns real Codex prompts, touched files, source lines, articles, and project arcs into a readable guild interface instead of a flat blog.",
   },
-  {
-    id: "openguild",
-    name: "OpenGuild",
-    status: "SEMI-DONE",
-    displayStatus: "Semi-completed",
-    progress: 41,
-    tagline: "Adventure Guild for public builders",
-    summary: "Adventure guild for public builders and progress lore.",
-    description:
-      "A beautiful way to talk about projects, skills, and progress through an adventure-guild interface.",
-    goal: "Make project progress, skills, and lore readable as a public-builder guild.",
-    whyStarted:
-      "A more interesting way to show work than a static portfolio or changelog.",
-    outcome: "This site uses OpenGuild's visual language as its interface layer.",
-    topThings: [
-      "Public-builder quest board",
-      "Progress, skills, and lore in one style",
-      "Visual language for this site",
-    ],
-  },
 ] as const satisfies readonly Quest[];
 
 export const incubatingQuests = [
@@ -407,7 +387,7 @@ export const loreEntries = [
   },
   {
     date: "2025-05-14 11:32",
-    text: "Refined OpenGuild value proposition.",
+    text: "Refined the public-builder quest interface.",
   },
   {
     date: "2025-05-12 08:51",

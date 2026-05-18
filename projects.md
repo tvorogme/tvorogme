@@ -2,7 +2,7 @@
 
 Hi, I'm Andrey Tvorozhkov. I have been programming and building companies since 2017. Now I'm trying to build something significant in the AI Agents era.
 
-You can follow my progress on OpenGuild, Telegram, X, RSS, and Email.
+You can follow my progress on Telegram, X, RSS, and Email.
 
 # Skills
 
@@ -95,13 +95,6 @@ You can follow my progress on OpenGuild, Telegram, X, RSS, and Email.
 - Status: Newly-born
 - Goals: AI Agents for users in Telegram and MAX
 - Why was started: Tools like OpenClaw are popular in Telegram and WhatsApp communities, but they are still too difficult for non-technical everyday users to configure. We want to provide one-button access to AI agents with a full workspace, including a browser and file system, directly inside a messenger.
-
-## OpenGuild
-
-#### Adventure Guild for public builders
-
-- Status: Semi-completed
-- Why was started: It is an interesting and beautiful way to talk about projects, skills, and progress.
 
 ## Education Game (Naming TBD)
 
