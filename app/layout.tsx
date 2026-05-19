@@ -1,20 +1,7 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Lora } from "next/font/google";
 import { RouteTransitionProvider } from "@/components/route-transition-provider";
 import { getMetadataBase } from "@/lib/site-url";
 import "./globals.css";
-
-const mono = IBM_Plex_Mono({
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "600"],
-  variable: "--font-mono",
-});
-
-const serif = Lora({
-  subsets: ["latin", "cyrillic"],
-  weight: ["600"],
-  variable: "--font-serif",
-});
 
 const themeInitScript = `(() => {
   try {
@@ -57,7 +44,6 @@ export default function RootLayout({
       lang="en"
       data-theme="light"
       data-scroll-behavior="smooth"
-      className={`${mono.variable} ${serif.variable}`}
       suppressHydrationWarning
     >
       <body>

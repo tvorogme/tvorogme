@@ -17,8 +17,8 @@
   --avatar-filter: contrast(1.18) saturate(1.22);
   --space-scene-filter: contrast(1.55) brightness(0.62);
   --era-scene-filter: contrast(1.28) brightness(0.84);
-  --mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
-  --serif: var(--font-serif), Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --serif: Lora, Georgia, "Times New Roman", serif;
   --type-micro: 0.64rem;
   --type-caption: 0.7rem;
   --type-small: 0.76rem;
