@@ -463,7 +463,7 @@ export const campaign = {
     "Exploring the edge of AI Agents, information architecture, and decentralized coordination to build weird, useful products that compound over time.",
   focus: "Focus: long-term systems, real users, durable impact",
   quoteLines: [
-    '"The universe is change.',
-    'Our life is what our thoughts make it. - Marcus Aurelius"',
+    '"Imagination is more important than knowledge."',
+    "- Albert Einstein",
   ],
 } as const;
